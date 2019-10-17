@@ -38,4 +38,12 @@ public class Hero {
     public void setHp(int hp) {
         this.hp = hp;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + getName() +
+                " / " + "HP: " + getHp() +
+                " / " + "Atk: " + getAtk() +
+                " / " + "Def: " + getDef();
+    }
 }
