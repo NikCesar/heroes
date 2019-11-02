@@ -3,5 +3,9 @@ package service;
 import model.Hero;
 
 public interface HeroService {
-    Hero createHero(String name);
+    void createHero(String name);
+
+    Hero getHero(Long id);
+
+    int heroGt50Atk();
 }

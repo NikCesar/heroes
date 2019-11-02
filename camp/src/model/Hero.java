@@ -1,11 +1,32 @@
 package model;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Hero {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String name;
+    @Column
     private int atk;
+    @Column
     private int def;
+    @Column
     private int hp;
+
+    public Hero() {
+    }
+
+    public Hero(String name, int atk, int def, int hp) {
+        this.name = name;
+        this.atk = atk;
+        this.def = def;
+        this.hp = hp;
+    }
 
     public String getName() {
         return name;
