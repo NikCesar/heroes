@@ -1,6 +1,6 @@
 package service;
 
-import camp.model.Party;
+import model.Party;
 
 public interface PartyService {
 

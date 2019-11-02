@@ -1,5 +1,4 @@
-package camp.model;
-
+package model;
 import model.Hero;
 
 import java.util.List;
@@ -25,4 +24,18 @@ public class Party {
     public void setMembers(List<Hero> members) {
         this.members = members;
     }
+
+    @Override
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        s.append(this.getName());
+        s.append("\n\nMembers:");
+
+        getMembers().forEach(h -> {
+            s.append(h);
+            s.append("\n");
+        });
+        return s.toString();
+    }
+
 }

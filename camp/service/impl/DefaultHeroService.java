@@ -14,7 +14,6 @@ public class DefaultHeroService implements HeroService {
         h.setDef(Helpers.getRandomInt(1,100));
         h.setHp(100);
 
-        System.out.println(String.format("atk=%s;def=%s;hp=%s;", h.getAtk(), h.getDef(), h.getHp()));
         return h;
     }
 }

@@ -1,6 +1,6 @@
 package service.impl;
 
-import camp.model.Party;
+import model.Party;
 import model.Hero;
 import service.PartyService;
 
@@ -18,16 +18,13 @@ public class DefaultPartyService implements PartyService {
     @Override
     public Party createParty(String name) {
         Party p = new Party();
-        List<Hero> herosList = new ArrayList();
-        herosList.add(heroService.createHero("Nikola"));
-        herosList.add(heroService.createHero("Nicola"));
-        herosList.add(heroService.createHero("Matthias"));
-        herosList.add(heroService.createHero("Jürg"));
-        p.setMembers(herosList);
-
-        System.out.println(p);
+        p.setName(name);
+        List<Hero> heroList = new ArrayList();
+        heroList.add(heroService.createHero("Nikola"));
+        heroList.add(heroService.createHero("Nicola"));
+        heroList.add(heroService.createHero("Matthias"));
+        heroList.add(heroService.createHero("Jürg"));
+        p.setMembers(heroList);
         return p;
     }
-
-
 }

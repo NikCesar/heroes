@@ -43,4 +43,9 @@ public class Hero {
     public void setHp(int hp) {
         this.hp = hp;
     }
+
+    @Override
+    public String toString(){
+        return String.format("name=%s;atk=%s;def=%s;hp=%s;", this.getName(), this.getAtk(), this.getDef(), this.getHp());
+    }
 }
