@@ -1,7 +1,13 @@
 package model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class Hero {
+
+    @Id
+    private String id;
 
     private String name;
     private int atk;
@@ -10,6 +16,10 @@ public class Hero {
 
     public Hero(String name){
         this.name = name;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {

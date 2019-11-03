@@ -2,11 +2,13 @@ package service.impl;
 
 import model.Party;
 import model.Hero;
+import org.springframework.stereotype.Service;
 import service.PartyService;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class DefaultPartyService implements PartyService {
 
     DefaultHeroService heroService;

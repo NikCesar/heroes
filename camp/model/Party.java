@@ -1,8 +1,5 @@
 package model;
-import model.Hero;
-
 import java.util.List;
-
 
 public class Party {
 
@@ -29,7 +26,7 @@ public class Party {
     public String toString(){
         StringBuilder s = new StringBuilder();
         s.append(this.getName());
-        s.append("\n\nMembers:");
+        s.append("\nMembers:\n");
 
         getMembers().forEach(h -> {
             s.append(h);
