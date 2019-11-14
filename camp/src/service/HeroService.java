@@ -5,7 +5,9 @@ import model.Hero;
 public interface HeroService {
     void createHero(String name);
 
-    Hero getHero(Long id);
+    Hero getHero(String id);
+
+    Hero getHeroByName(String name);
 
     int heroGt50Atk();
 }

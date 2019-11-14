@@ -36,8 +36,18 @@ public class HeroServiceRandom implements HeroService {
     }
 
     @Override
-    public Hero getHero(Long id) {
+    public Hero getHero(String id) {
         Optional<Hero> optional = heroRepository.findById(id);
+        if (optional.isPresent()) {
+            return optional.get();
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public Hero getHeroByName(String name) {
+        Optional<Hero> optional = heroRepository.findByName(name);
         if (optional.isPresent()) {
             return optional.get();
         } else {

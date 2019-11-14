@@ -28,8 +28,8 @@ public class PartyServiceRandom implements PartyService {
         for (int i = 0; i < this._PARTY_SIZE; i++) {
             heroService.createHero("Hercules " + i);
         }
-        for (Long i = 1L; i <= this._PARTY_SIZE; i++) {
-            Hero hero = heroService.getHero(i);
+        for (int i = 0; i <= this._PARTY_SIZE; i++) {
+            Hero hero = heroService.getHeroByName("Hercules " + i);
             if (hero != null) {
                 partyHeroes.add(hero);
             }
