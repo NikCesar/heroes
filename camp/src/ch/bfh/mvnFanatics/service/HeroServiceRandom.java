@@ -1,9 +1,9 @@
-package service;
+package ch.bfh.mvnFanatics.service;
 
-import model.Hero;
+import ch.bfh.mvnFanatics.model.Hero;
+import ch.bfh.mvnFanatics.repositories.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.HeroRepository;
 
 import java.util.Optional;
 import java.util.Random;

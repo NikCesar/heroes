@@ -1,14 +1,12 @@
-package service;
+package ch.bfh.mvnFanatics.service;
 
-import model.Hero;
-import model.Party;
+import ch.bfh.mvnFanatics.model.Hero;
+import ch.bfh.mvnFanatics.model.Party;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.HeroRepository;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PartyServiceRandom implements PartyService {

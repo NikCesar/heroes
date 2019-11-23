@@ -1,4 +1,4 @@
-package model;
+package ch.bfh.mvnFanatics.model;
 
 import java.util.List;
 

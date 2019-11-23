@@ -1,6 +1,6 @@
-package service;
+package ch.bfh.mvnFanatics.service;
 
-import model.Hero;
+import ch.bfh.mvnFanatics.model.Hero;
 
 public interface HeroService {
     void createHero(String name);
