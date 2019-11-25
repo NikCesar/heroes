@@ -1,6 +1,6 @@
-package service;
+package ch.bfh.swos.camp.service;
 
-import model.Hero;
+import ch.bfh.swos.camp.model.Hero;
 
 public interface HeroService {
 

@@ -1,4 +1,5 @@
-package model;
+package ch.bfh.swos.camp.model;
+
 import java.util.List;
 
 public class Party {

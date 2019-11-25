@@ -1,9 +1,9 @@
-package service.impl;
+package ch.bfh.swos.camp.service.impl;
 
-import model.Party;
-import model.Hero;
+import ch.bfh.swos.camp.model.Hero;
+import ch.bfh.swos.camp.model.Party;
+import ch.bfh.swos.camp.service.PartyService;
 import org.springframework.stereotype.Service;
-import service.PartyService;
 
 import java.util.ArrayList;
 import java.util.List;

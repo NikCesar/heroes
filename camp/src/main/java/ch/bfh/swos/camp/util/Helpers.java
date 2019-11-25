@@ -1,4 +1,4 @@
-package util;
+package ch.bfh.swos.camp.util;
 
 import java.util.Random;
 

@@ -1,11 +1,11 @@
-package service.impl;
+package ch.bfh.swos.camp.service.impl;
 
-import model.Hero;
+import ch.bfh.swos.camp.model.Hero;
+import ch.bfh.swos.camp.repositories.HeroRepository;
+import ch.bfh.swos.camp.service.HeroService;
+import ch.bfh.swos.camp.util.Helpers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.HeroRepository;
-import service.HeroService;
-import util.Helpers;
 
 @Service
 public class DefaultHeroService implements HeroService {

@@ -1,8 +1,9 @@
-package service;
+package ch.bfh.swos.camp.service;
 
-import model.Party;
+import ch.bfh.swos.camp.model.Party;
 
 public interface PartyService {
 
     Party createParty(String name);
 }
+

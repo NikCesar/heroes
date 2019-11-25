@@ -1,6 +1,6 @@
-package repositories;
+package ch.bfh.swos.camp.repositories;
 
-import model.Hero;
+import ch.bfh.swos.camp.model.Hero;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
