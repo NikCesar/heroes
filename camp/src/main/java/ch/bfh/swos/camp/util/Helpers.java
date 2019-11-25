@@ -1,9 +1,6 @@
 package ch.bfh.swos.camp.util;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -13,7 +10,7 @@ public class Helpers {
         List<Integer> range = IntStream.range(low, high).boxed()
                 .collect(Collectors.toCollection(ArrayList::new));
         Collections.shuffle(range);
-        return range.subList(0, numberOfInts-1);
+        return range.subList(0, numberOfInts);
     }
 
 

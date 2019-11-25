@@ -1,18 +1,26 @@
 package ch.bfh.swos.camp.service.impl;
 
+import ch.bfh.swos.camp.CampApplication;
 import ch.bfh.swos.camp.exceptions.HeroNotFoundException;
 import ch.bfh.swos.camp.exceptions.InvalidHeroException;
+import ch.bfh.swos.camp.exceptions.NotEnoughHeroesAvailableException;
 import ch.bfh.swos.camp.model.Hero;
 import ch.bfh.swos.camp.repositories.HeroRepository;
 import ch.bfh.swos.camp.service.HeroService;
 import ch.bfh.swos.camp.util.Helpers;
+import ch.bfh.swos.camp.util.NameList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class DefaultHeroService implements HeroService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(DefaultHeroService.class);
 
     private static int MIN_ATK = 1;
     private static int MAX_ATK = 100;
@@ -23,7 +31,7 @@ public class DefaultHeroService implements HeroService {
     @Autowired
     private HeroRepository heroRepository;
 
-    public DefaultHeroService(HeroRepository heroRepository){
+    public DefaultHeroService(HeroRepository heroRepository) {
         this.heroRepository = heroRepository;
     }
 
@@ -37,43 +45,63 @@ public class DefaultHeroService implements HeroService {
         Hero hero = this.heroRepository.findById(id).get();
 
         // Check if hero-id exists in database:
-        if(hero == null){
+        if (hero == null) {
             throw new HeroNotFoundException("A hero with the specified id doesn't exist!");
         }
         return hero;
     }
 
     @Override
-    public String createHero(Hero hero){
+    public List<Hero> createRandomHeroes(int numberOfHeroesToCreate) throws NotEnoughHeroesAvailableException {
+        String[] allNames = NameList.getNameList();
+
+        if(numberOfHeroesToCreate > allNames.length){
+            throw new NotEnoughHeroesAvailableException(numberOfHeroesToCreate, allNames.length);
+        }
+
+        List<Hero> createdHeroes = new ArrayList<>();
+        List<Integer> distinctRandomInts = Helpers.getDistinctRandomInts(0, (allNames.length - 1), numberOfHeroesToCreate);
+
+        for(int i: distinctRandomInts){
+            createdHeroes.add(createHeroByName(allNames[i]));
+        }
+        return createdHeroes;
+    }
+
+    @Override
+    public String createHero(Hero hero) {
         // Insert into database and return Id of newly created hero:
         return this.heroRepository.insert(hero).getId();
     }
 
     @Override
-    public Hero createHero(String name) {
+    public Hero createHeroByName(String name) {
 
         Hero h = new Hero(name);
-        h.setAtk(Helpers.getRandomInt(MIN_ATK,MAX_ATK));
-        h.setDef(Helpers.getRandomInt(MIN_DEF,MAX_DEF));
+        h.setAtk(Helpers.getRandomInt(MIN_ATK, MAX_ATK));
+        h.setDef(Helpers.getRandomInt(MIN_DEF, MAX_DEF));
         h.setHp(HP);
 
         h = heroRepository.insert(h);
         Hero heroFromDb = heroRepository.findById(h.getId()).get();
-        System.err.println(heroFromDb);
+        // System.err.println(heroFromDb);
+
+        LOGGER.info(heroFromDb.toString());
 
         return heroFromDb;
     }
 
+
     @Override
     public void updateHero(Hero hero) throws InvalidHeroException, HeroNotFoundException {
 
-        if(hero == null || Helpers.isNullOrEmpty(hero.getId(), hero.getName())){
+        if (hero == null || Helpers.isNullOrEmpty(hero.getId(), hero.getName())) {
             throw new InvalidHeroException("Update failed! Hero-id or hero-name are missing!");
         }
 
         Hero h = this.heroRepository.findById(hero.getId()).get();
 
-        if(h == null){
+        if (h == null) {
             throw new HeroNotFoundException("Update failed! Specified hero-id could not be found!");
         }
 
@@ -88,15 +116,20 @@ public class DefaultHeroService implements HeroService {
     @Override
     public void deleteHero(String heroId) throws HeroNotFoundException {
         // Check if hero-id is null or empty:
-        if (heroId == null || heroId.isEmpty()){
+        if (heroId == null || heroId.isEmpty()) {
             throw new HeroNotFoundException("Id must not be null or empty");
         }
         // Check if hero-Id can be found in database:
-        if(this.heroRepository.findById(heroId).get() == null){
+        if (this.heroRepository.findById(heroId).get() == null) {
             throw new HeroNotFoundException("Deletion failed. No hero with the specified id was found!");
         }
         // Remove hero from database:
         this.heroRepository.deleteHeroById(heroId);
+    }
+
+    @Override
+    public void deleteAllHeroes() {
+        this.heroRepository.deleteAll();
     }
 
 

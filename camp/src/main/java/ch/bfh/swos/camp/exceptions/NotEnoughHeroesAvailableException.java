@@ -4,9 +4,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 public class NotEnoughHeroesAvailableException extends Exception {
-
+    public NotEnoughHeroesAvailableException(){
+        super();
+    }
     public NotEnoughHeroesAvailableException(int requestedNumbOfHeroes, int availNumbOfHeroes){
-        super("Not enough heroes available: Your requested " + requestedNumbOfHeroes + ", yet there are currently just " + availNumbOfHeroes + " available.");
+        super("Not enough heroes available: You requested " + requestedNumbOfHeroes + ", yet there are only " + availNumbOfHeroes + " available.");
     }
 
 }
