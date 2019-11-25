@@ -6,7 +6,6 @@ import ch.bfh.swos.camp.exceptions.NotEnoughHeroesAvailableException;
 import ch.bfh.swos.camp.model.Hero;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface HeroService {
 

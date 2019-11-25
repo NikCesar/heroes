@@ -1,12 +1,10 @@
 package ch.bfh.swos.camp.controller;
 
-import ch.bfh.swos.camp.exceptions.InvalidHeroException;
 import ch.bfh.swos.camp.exceptions.NotEnoughHeroesAvailableException;
 import ch.bfh.swos.camp.model.Hero;
 import ch.bfh.swos.camp.model.Party;
 import ch.bfh.swos.camp.service.PartyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.support.RepositoryEntityLinks;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +21,6 @@ public class PartyController {
     @Autowired
     PartyService partyService;
 
-    @Autowired
-    private RepositoryEntityLinks entityLinks;
-
 
     // Endpoint to check if Rest Controller works:
     @GetMapping
@@ -35,7 +30,7 @@ public class PartyController {
 
     @PostMapping("/{partyName}")
     public @ResponseBody
-    HttpEntity<Party> createParty(@PathVariable String partyName) throws Exception {
+    HttpEntity<Party> createParty(@PathVariable String partyName) throws ResponseStatusException {
         try {
             Party p = partyService.createParty(partyName);
             p.add(linkTo(methodOn(PartyController.class).createParty(partyName)).withSelfRel());

@@ -1,6 +1,5 @@
 package ch.bfh.swos.camp.service.impl;
 
-import ch.bfh.swos.camp.CampApplication;
 import ch.bfh.swos.camp.exceptions.HeroNotFoundException;
 import ch.bfh.swos.camp.exceptions.InvalidHeroException;
 import ch.bfh.swos.camp.exceptions.NotEnoughHeroesAvailableException;
