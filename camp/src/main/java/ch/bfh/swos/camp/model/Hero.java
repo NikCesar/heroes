@@ -3,6 +3,7 @@ package ch.bfh.swos.camp.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Document
 public class Hero {
 
@@ -30,9 +31,7 @@ public class Hero {
         this.name = name;
     }
 
-    public int getAtk() {
-        return atk;
-    }
+    public int getAtk() { return atk; }
 
     public void setAtk(int atk) {
         this.atk = atk;
@@ -46,9 +45,7 @@ public class Hero {
         this.def = def;
     }
 
-    public int getHp() {
-        return hp;
-    }
+    public int getHp() { return hp; }
 
     public void setHp(int hp) {
         this.hp = hp;

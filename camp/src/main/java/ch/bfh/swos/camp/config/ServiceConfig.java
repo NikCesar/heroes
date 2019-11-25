@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+// @Configuration
 public class ServiceConfig {
-
+/*
     @Autowired
     private HeroRepository heroRepository;
 
@@ -22,5 +22,5 @@ public class ServiceConfig {
     public DefaultPartyService partyService() {
         return new DefaultPartyService(heroService());
     }
-
+*/
 }

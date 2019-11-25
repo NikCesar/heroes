@@ -8,51 +8,14 @@
         <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repositories -->
     </parent>
+
     <groupId>ch.bfh.swos</groupId>
     <artifactId>heroes</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1</version>
-    <name>heroes</name>
-    <description>heroes project for BTI7515</description>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
-
-    <modules>
-        <module>camp</module>
-    </modules>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+	<modules>
+		<module>camp</module>
+	</modules>
 
 </project>

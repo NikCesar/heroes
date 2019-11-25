@@ -10,11 +10,17 @@ import java.util.Optional;
 @Repository
 public interface HeroRepository extends MongoRepository<Hero, String> {
 
+    public List<Hero> findAll();
+
     public Optional<Hero> findById(String id);
 
     public List<Hero> findByName(String name);
 
     public Hero insert(Hero hero);
+
+    public void deleteHeroById(String id);
+
+    public void deleteAll();
 
     public int countHeroByAtkGreaterThan(int value);
 

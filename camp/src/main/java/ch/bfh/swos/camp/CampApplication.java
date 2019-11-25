@@ -45,13 +45,19 @@ public class CampApplication implements ApplicationRunner {
 		LOGGER.info("## Option Value of --optionalArg1 : "+args.getOptionValues("optionalArg1"));
 		LOGGER.info("## Option Value of --optionalArg2 : "+args.getOptionValues("optionalArg2"));
 
+		try {
+			System.out.println(partyService.createParty("TestParty"));
+
+		}catch(Exception e){
+
+		}
+				/* Party p = partyService.createParty("Hero Party");
+				int herosWithAtkGreaterThan = heroService.countHeroByAtkGreaterThan(50);
+				System.err.println(p);
+				System.err.println("Number of Heroes with ATK > 50: " + herosWithAtkGreaterThan);
+				*/
 
 
-		Party p = partyService.createParty("Hero Party");
-		int herosWithAtkGreaterThan = heroService.countHeroByAtkGreaterThan(50);
-		System.err.println(p);
-		System.err.println("Number of Heroes with ATK > 50: " + herosWithAtkGreaterThan);
-
-	}
+			}
 
 }
