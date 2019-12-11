@@ -14,6 +14,8 @@ import org.springframework.web.server.ResponseStatusException;
 import static org.springframework.hateoas.server.core.DummyInvocationUtils.methodOn;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
+// localhost:9999/camp/parties/
+
 @RestController
 @RequestMapping("/parties")
 public class PartyController {
@@ -28,9 +30,8 @@ public class PartyController {
         return partyService.createParty("Test Party");
     }
 
-    @PostMapping("/{partyName}")
-    public @ResponseBody
-    HttpEntity<Party> createParty(@PathVariable String partyName) throws ResponseStatusException {
+    @GetMapping(value = "/createParty")
+    public HttpEntity<Party> createParty(@RequestParam("name") String partyName) throws ResponseStatusException {
         try {
             Party p = partyService.createParty(partyName);
             p.add(linkTo(methodOn(PartyController.class).createParty(partyName)).withSelfRel());

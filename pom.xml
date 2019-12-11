@@ -16,6 +16,8 @@
 
 	<modules>
 		<module>camp</module>
+        <module>arena</module>
+        <module>promoter</module>
 	</modules>
 
 </project>

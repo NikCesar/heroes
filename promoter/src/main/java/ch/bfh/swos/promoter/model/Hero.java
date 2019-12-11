@@ -1,13 +1,7 @@
-package ch.bfh.swos.camp.model;
+package ch.bfh.swos.promoter.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-
-@Document
 public class Hero {
 
-    @Id
     private String id;
 
     private String name;
