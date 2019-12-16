@@ -26,8 +26,8 @@ public class DefaultPromoterService implements PromoterService {
     @Override
     public String promoteFight() {
 
-        Party partyHome = campClient.createParty("Challengee (Home)").getContent();
-        Party partyAway = campClient.createParty("Challenger (Away)").getContent();
+        Party partyHome = campClient.createParty("Challengee (Home)").getBody();
+        Party partyAway = campClient.createParty("Challenger (Away)").getBody();
         LOG.info("Todays battle is between Party '"+partyHome.getName()+"' and Party '"+partyAway.getName()+"'.");
 
         List<Party> duelingParties = new ArrayList<>();

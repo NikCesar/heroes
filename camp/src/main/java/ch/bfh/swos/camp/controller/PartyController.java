@@ -14,7 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import static org.springframework.hateoas.server.core.DummyInvocationUtils.methodOn;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
-// localhost:9999/camp/parties/
+// localhost:2222/parties/
 
 @RestController
 @RequestMapping("/parties")

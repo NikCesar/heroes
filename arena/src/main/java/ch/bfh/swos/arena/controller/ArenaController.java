@@ -3,14 +3,11 @@ package ch.bfh.swos.arena.controller;
 import ch.bfh.swos.arena.model.Party;
 import ch.bfh.swos.arena.service.BattleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// localhost:1111/arena/
+// localhost:3333/arena/
 
 @RestController
 @RequestMapping("/arena")
@@ -18,6 +15,12 @@ public class ArenaController {
 
     @Autowired
     private BattleService battleService;
+
+    // To test if arena-Service is working
+    @GetMapping
+    public String arenaServiceStatus(){
+        return "Arena Service is working";
+    }
 
     @PostMapping(value = "/battle")
     public String battle(@RequestBody List<Party> duelingParties) {

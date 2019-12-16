@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// localhost:9999/camp/heroes/
+// localhost:2222/heroes/
 
 @RestController
 @RequestMapping("/heroes")

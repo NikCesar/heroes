@@ -10,12 +10,16 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
 @SpringBootApplication
+// Enables this microservice to register at Eureka-server (== registry-module)
+// Config-data for registering is in Application.properties
+@EnableEurekaClient
 public class CampApplication implements ApplicationRunner {
 
     @Autowired

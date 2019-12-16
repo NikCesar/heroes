@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-// localhost:2222/promoter/
+// localhost:4444/promoter/
 
 @RestController
 @RequestMapping("/promoter")
@@ -14,6 +14,12 @@ public class PromoterController {
 
     @Autowired
     private PromoterService promoterService;
+
+    // To test if promoter-service is working
+    @GetMapping
+    public String promotorServiceStatus(){
+        return "Promoter-Service is working";
+    }
 
     @GetMapping(value = "/promoteFight")
     public String promoteFight() {
