@@ -14,6 +14,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableEurekaClient
 @EnableFeignClients(basePackages = {"ch.bfh.swos.promoter.service.impl"})
 @EnableHystrix
+// URL for Hystrix-Dashboard: http://localhost:4444/hystrix/
 @EnableHystrixDashboard
 public class PromoterApplication {
 
