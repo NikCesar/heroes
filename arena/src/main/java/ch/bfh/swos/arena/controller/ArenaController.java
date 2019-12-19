@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// localhost:3333/arena/
+// localhost:3333/
 
 @RestController
-@RequestMapping("/arena")
+// @RequestMapping("/arena")
 public class ArenaController {
 
     @Autowired

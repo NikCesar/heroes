@@ -23,11 +23,12 @@ public class DefaultPromoterService implements PromoterService {
     @Autowired
     private ArenaClient arenaClient;
 
+
     @Override
     public String promoteFight() {
 
-        Party partyHome = campClient.createParty("Challengee (Home)").getBody();
-        Party partyAway = campClient.createParty("Challenger (Away)").getBody();
+        Party partyHome = campClient.createParty("Challengee_Home").getContent();
+        Party partyAway = campClient.createParty("Challenger_Away").getContent();
         LOG.info("Todays battle is between Party '"+partyHome.getName()+"' and Party '"+partyAway.getName()+"'.");
 
         List<Party> duelingParties = new ArrayList<>();
