@@ -50,22 +50,17 @@ public class DefaultPromoterService implements PromoterService {
     /** Makes sure all participating heroes have a surname that starts with a different letter (in case their first name is identical) **/
     private void addDistinctNameExtensions(Party partyHome, Party partyAway){
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-        int totalNumberOfHeroes = partyHome.getMembers().size() + partyAway.getMembers().size();
 
-        // Make sure it's possible to find a different letter for every hero:
-        if(totalNumberOfHeroes > alphabet.length){
-            return;
-        }
-
-        List<Integer> randomInts = Helpers.getDistinctRandomInts(0, alphabet.length-1, totalNumberOfHeroes);
-        int count = 0;
-        for(Hero h: partyHome.getMembers()){
-            h.setName(h.getName()+ " " +alphabet[randomInts.get(count)] +".");
-            count++;
-        }
-        for(Hero h: partyAway.getMembers()){
-            h.setName(h.getName()+ " " +alphabet[randomInts.get(count)] +".");
-            count++;
+        for(int i=0; i < partyHome.getMembers().size(); i++){
+            for(int j=0; j < partyAway.getMembers().size(); j++){
+                if(partyHome.getMembers().get(i).getName().equals(partyAway.getMembers().get(j).getName())){
+                    List<Integer> randomInts = Helpers.getDistinctRandomInts(0, alphabet.length-1, 2);
+                    String heroNameHome = partyHome.getMembers().get(i).getName() + " " + alphabet[randomInts.get(0)] + ".";
+                    partyHome.getMembers().get(i).setName(heroNameHome);
+                    String heroNameAway = partyAway.getMembers().get(j).getName() + " " + alphabet[randomInts.get(1)] + ".";
+                    partyAway.getMembers().get(j).setName(heroNameAway);
+                }
+            }
         }
     }
 

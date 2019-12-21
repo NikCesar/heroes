@@ -58,7 +58,7 @@ public class CampApplication implements ApplicationRunner {
             this.heroService.deleteAllHeroes();
             // Populate database with 20 randomly created heroes:
             System.err.println("\nCreated Heroes:");
-            List<Hero> heroes = this.heroService.createRandomHeroes(300);
+            List<Hero> heroes = this.heroService.createRandomHeroes(500);
             // Create a random party and print it out:
             System.err.println(partyService.createParty("\n\nMonster Party"));
             // Calculate how many of the heroes in the database have an ATK > 50:
