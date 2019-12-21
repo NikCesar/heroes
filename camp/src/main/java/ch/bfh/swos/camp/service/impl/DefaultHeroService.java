@@ -25,6 +25,8 @@ public class DefaultHeroService implements HeroService {
     private static int MAX_ATK = 100;
     private static int MIN_DEF = 1;
     private static int MAX_DEF = 100;
+    private static int MIN_INITIATIVE = 1;
+    private static int MAX_INITIATIVE = 20;
     private static int HP = 100;
 
     private HeroRepository heroRepository;
@@ -79,6 +81,9 @@ public class DefaultHeroService implements HeroService {
         Hero h = new Hero(name);
         h.setAtk(Helpers.getRandomInt(MIN_ATK, MAX_ATK));
         h.setDef(Helpers.getRandomInt(MIN_DEF, MAX_DEF));
+        h.setCritChance(Helpers.getChanceAsDouble());
+        h.setDodgeChance(Helpers.getChanceAsDouble());
+        h.setInitiative(Helpers.getRandomInt(MIN_INITIATIVE, MAX_INITIATIVE));
         h.setHp(HP);
 
         h = heroRepository.save(h);
@@ -108,6 +113,10 @@ public class DefaultHeroService implements HeroService {
         h.setAtk(hero.getAtk());
         h.setDef(hero.getDef());
         h.setHp(hero.getHp());
+        h.setInitiative(hero.getInitiative());
+        h.setDodgeChance(hero.getDodgeChance());
+        h.setCritChance(hero.getCritChance());
+        h.setPosition(hero.getPosition());
 
         heroRepository.save(h);
     }
