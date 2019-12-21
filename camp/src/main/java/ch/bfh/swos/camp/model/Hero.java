@@ -1,19 +1,29 @@
 package ch.bfh.swos.camp.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 
-@Document
+@Entity
+@Table
 public class Hero {
 
     @Id
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
-
+    @Column
     private String name;
+    @Column
     private int atk;
+    @Column
     private int def;
+    @Column
     private double hp;
+
+    public Hero() {
+    }
 
     public Hero(String name){
         this.name = name;
