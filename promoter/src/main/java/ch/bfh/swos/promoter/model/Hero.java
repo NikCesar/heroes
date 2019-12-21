@@ -9,6 +9,9 @@ public class Hero {
     private int def;
     private double hp;
 
+    public Hero() {
+    }
+
     public Hero(String name){
         this.name = name;
     }
