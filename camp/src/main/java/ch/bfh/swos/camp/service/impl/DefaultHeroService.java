@@ -27,9 +27,9 @@ public class DefaultHeroService implements HeroService {
     private static int MAX_DEF = 100;
     private static int HP = 100;
 
-    @Autowired
     private HeroRepository heroRepository;
 
+    @Autowired
     public DefaultHeroService(HeroRepository heroRepository) {
         this.heroRepository = heroRepository;
     }
@@ -70,7 +70,7 @@ public class DefaultHeroService implements HeroService {
     @Override
     public String createHero(Hero hero) {
         // Insert into database and return Id of newly created hero:
-        return this.heroRepository.insert(hero).getId();
+        return this.heroRepository.saveAndFlush(hero).getId();
     }
 
     @Override
@@ -81,7 +81,7 @@ public class DefaultHeroService implements HeroService {
         h.setDef(Helpers.getRandomInt(MIN_DEF, MAX_DEF));
         h.setHp(HP);
 
-        h = heroRepository.insert(h);
+        h = heroRepository.save(h);
         Hero heroFromDb = heroRepository.findById(h.getId()).get();
         // System.err.println(heroFromDb);
 
