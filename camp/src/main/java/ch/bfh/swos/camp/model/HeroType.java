@@ -1,12 +1,12 @@
 package ch.bfh.swos.camp.model;
 
-public enum HeroClass {
+public enum HeroType {
     WARRIOR,
     ROGUE,
     MAGE,
     ARCHER;
 
-    public static HeroClass intToHeroClass(int i) {
+    public static HeroType convertIntToHeroType(int i) {
         switch (i) {
             case 0:
                 return WARRIOR;

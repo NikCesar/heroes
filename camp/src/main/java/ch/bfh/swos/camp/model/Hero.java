@@ -31,7 +31,7 @@ public class Hero {
     private double critChance;
     @Column(name = "hero_class")
     @Enumerated(EnumType.STRING)
-    private HeroClass heroClass;
+    private HeroType heroType;
 
     public Hero() {
     }
@@ -104,12 +104,12 @@ public class Hero {
         this.critChance = critChance;
     }
 
-    public HeroClass getHeroClass() {
-        return heroClass;
+    public HeroType getHeroType() {
+        return heroType;
     }
 
-    public void setHeroClass(HeroClass heroClass) {
-        this.heroClass = heroClass;
+    public void setHeroType(HeroType heroType) {
+        this.heroType = heroType;
     }
 
     @Override

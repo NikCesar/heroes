@@ -12,7 +12,7 @@ public class Hero {
     private int initiative;
     private double dodgeChance;
     private double critChance;
-    private HeroClass heroClass;
+    private HeroType heroType;
 
     public Hero() {
     }
@@ -85,16 +85,16 @@ public class Hero {
         this.critChance = critChance;
     }
 
-    public HeroClass getHeroClass() {
-        return heroClass;
+    public HeroType getHeroType() {
+        return heroType;
     }
 
-    public void setHeroClass(HeroClass heroClass) {
-        this.heroClass = heroClass;
+    public void setHeroType(HeroType heroType) {
+        this.heroType = heroType;
     }
 
     @Override
     public String toString(){
-        return String.format("name=%s;atk=%s;def=%s;hp=%s;position=%s;initiative=%s;dodgeChance=%s;critChance=%s;Class=%s", this.getName(), this.getAtk(), this.getDef(), this.getHp(), this.getPosition(), this.getInitiative(), this.getDodgeChance(), this.getCritChance(), this.getHeroClass().toString());
+        return String.format("name=%s;atk=%s;def=%s;hp=%s;position=%s;initiative=%s;dodgeChance=%s;critChance=%s;Class=%s", this.getName(), this.getAtk(), this.getDef(), this.getHp(), this.getPosition(), this.getInitiative(), this.getDodgeChance(), this.getCritChance(), this.getHeroType().toString());
     }
 }
