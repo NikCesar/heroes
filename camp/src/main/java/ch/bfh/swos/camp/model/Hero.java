@@ -4,7 +4,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table
 public class Hero {
@@ -33,7 +32,12 @@ public class Hero {
     @Enumerated(EnumType.STRING)
     private HeroType heroType;
 
+    // Do not persist:
+    @Transient
+    private HeroFightStats fightStats;
+
     public Hero() {
+        this.fightStats = new HeroFightStats();
     }
 
     public Hero(String name){
@@ -111,6 +115,11 @@ public class Hero {
     public void setHeroType(HeroType heroType) {
         this.heroType = heroType;
     }
+
+    public HeroFightStats getFightStats() { return fightStats; }
+
+    public void setFightStats(HeroFightStats fightStats) { this.fightStats = fightStats; }
+
 
     @Override
     public String toString(){

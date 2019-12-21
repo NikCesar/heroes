@@ -13,6 +13,8 @@ public class Hero {
     private double dodgeChance;
     private double critChance;
     private HeroType heroType;
+    private boolean isAlive = true;
+    private HeroFightStats fightStats;
 
     public Hero() {
     }
@@ -91,6 +93,22 @@ public class Hero {
 
     public void setHeroType(HeroType heroType) {
         this.heroType = heroType;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
+
+    public HeroFightStats getFightStats() {
+        return fightStats;
+    }
+
+    public void setFightStats(HeroFightStats fightStats) {
+        this.fightStats = fightStats;
     }
 
     @Override

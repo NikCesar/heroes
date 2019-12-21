@@ -13,7 +13,6 @@ public class Helpers {
         return range.subList(0, numberOfInts);
     }
 
-
     public static int getRandomInt(int low, int high){
         Random r = new Random();
         return r.nextInt(high-low) + low;
@@ -22,8 +21,8 @@ public class Helpers {
     public static double getChanceAsDouble() {
         int randomInt = getRandomInt(1, 100);
         try {
-            String aftercommaDoubleString = "0." + randomInt;
-            return Double.valueOf(aftercommaDoubleString);
+            String afterCommaDoubleString = "0." + randomInt;
+            return Double.valueOf(afterCommaDoubleString);
         } catch (NumberFormatException e) {
             e.printStackTrace();
             return 0.1;

@@ -2,7 +2,7 @@ package ch.bfh.swos.camp.util;
 
 public class NameList {
 
-    public static String[] getNameList() {
+    public static String[] getNamesList() {
         return new String[]{
                 "David",
                 "John",

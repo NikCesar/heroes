@@ -1,9 +1,11 @@
 package ch.bfh.swos.promoter.client;
 
+import ch.bfh.swos.promoter.model.BattleStats;
 import ch.bfh.swos.promoter.model.Party;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -13,5 +15,5 @@ import java.util.List;
 public interface ArenaClient {
 
     @PostMapping(value = "/battle")
-    String battle(@RequestBody List<Party> duelingParties);
+    BattleStats battle(@RequestBody List<Party> duelingParties) throws ResponseStatusException;
 }

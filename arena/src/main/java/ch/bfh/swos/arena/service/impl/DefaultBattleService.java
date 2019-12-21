@@ -1,6 +1,8 @@
 package ch.bfh.swos.arena.service.impl;
 
+import ch.bfh.swos.arena.model.BattleStats;
 import ch.bfh.swos.arena.model.Hero;
+import ch.bfh.swos.arena.model.HeroFightStats;
 import ch.bfh.swos.arena.model.Party;
 import ch.bfh.swos.arena.service.BattleService;
 import org.slf4j.Logger;
@@ -18,7 +20,10 @@ public class DefaultBattleService implements BattleService {
     private static final DecimalFormat f = new DecimalFormat("##.00");
 
     @Override
-    public String battle(Party partyHome, Party partyAway) {
+    public BattleStats battle(Party partyHome, Party partyAway) {
+
+        resetFightStats(partyHome);
+        resetFightStats(partyAway);
 
         List<Hero> heroesHome = new ArrayList<>(partyHome.getMembers());
         List<Hero> heroesAway = new ArrayList<>(partyAway.getMembers());
@@ -61,12 +66,12 @@ public class DefaultBattleService implements BattleService {
             // check if a party has already lost (no members left), return the winners party name
             if (heroesHome.isEmpty()) {
                 LOG.info("Party '"+partyAway.getName()+"' wins this battle in "+roundCount+" rounds.");
-                return partyAway.getName();
+                return new BattleStats(partyAway, partyHome);
             }
 
             if (heroesAway.isEmpty()) {
                 LOG.info("Party '"+partyHome.getName()+"' wins this battle in "+roundCount+" rounds.");
-                return partyHome.getName();
+                return new BattleStats(partyHome, partyAway);
             }
         }
     }
@@ -92,6 +97,11 @@ public class DefaultBattleService implements BattleService {
             round(attacker, defender);
         }
         LOG.info(defender.getName()+" has lost the duel against "+attacker.getName()+".");
+
+        // Update fight-stats of involved heroes (+1 win resp. +1 defeat):
+        addFightResultToStats(attacker, defender);
+
+        // return loser
         return defender;
     }
 
@@ -117,6 +127,26 @@ public class DefaultBattleService implements BattleService {
         defenderHp -= harm;
         LOG.info("Defending "+defender.getName()+" has "+f.format(Math.max(0,defenderHp))+" health points left.");
 
+        // Update fight-stats of involved heroes:
+        addHarmPointsToStats(attacker, defender, harm);
+
         defender.setHp(defenderHp);
     }
+
+    private void resetFightStats(Party party){
+        for(int i=0; i < party.getMembers().size(); i++){
+            party.getMembers().get(i).setFightStats(new HeroFightStats());
+        }
+    }
+
+    private void addHarmPointsToStats(Hero attacker, Hero defender, double harmInCurrentAttack){
+        attacker.getFightStats().addHarmCaused(harmInCurrentAttack);
+        defender.getFightStats().addHarmTaken(harmInCurrentAttack);
+    }
+
+    private void addFightResultToStats(Hero winner, Hero loser){
+        winner.getFightStats().addWin();
+        loser.getFightStats().addDefeat();
+    }
+
 }

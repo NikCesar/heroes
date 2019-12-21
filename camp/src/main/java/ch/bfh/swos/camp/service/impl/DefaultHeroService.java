@@ -54,7 +54,7 @@ public class DefaultHeroService implements HeroService {
 
     @Override
     public List<Hero> createRandomHeroes(int numberOfHeroesToCreate) throws NotEnoughHeroesAvailableException {
-        String[] allNames = NameList.getNameList();
+        String[] allNames = NameList.getNamesList();
 
         if(numberOfHeroesToCreate > allNames.length){
             throw new NotEnoughHeroesAvailableException(numberOfHeroesToCreate, allNames.length);
