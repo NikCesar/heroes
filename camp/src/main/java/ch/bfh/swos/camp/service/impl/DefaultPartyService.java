@@ -2,6 +2,7 @@ package ch.bfh.swos.camp.service.impl;
 
 import ch.bfh.swos.camp.exceptions.NotEnoughHeroesAvailableException;
 import ch.bfh.swos.camp.model.Hero;
+import ch.bfh.swos.camp.model.HeroClass;
 import ch.bfh.swos.camp.model.Party;
 import ch.bfh.swos.camp.service.PartyService;
 import ch.bfh.swos.camp.util.Helpers;
@@ -35,7 +36,10 @@ public class DefaultPartyService implements PartyService {
         List<Integer> fourRandomInts = Helpers.getDistinctRandomInts(0, allHeroes.size() - 1, 4);
 
         for (int i: fourRandomInts) {
-            heroList.add(allHeroes.get(i));
+            Hero hero = allHeroes.get(i);
+            hero.setPosition(i);
+            hero.setHeroClass(HeroClass.intToHeroClass(i));
+            heroList.add(hero);
         }
 
         p.setMembers(heroList);
