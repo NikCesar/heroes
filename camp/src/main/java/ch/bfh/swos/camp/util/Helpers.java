@@ -19,6 +19,17 @@ public class Helpers {
         return r.nextInt(high-low) + low;
     }
 
+    public static double getChanceAsDouble() {
+        int randomInt = getRandomInt(1, 100);
+        try {
+            String aftercommaDoubleString = "0." + randomInt;
+            return Double.valueOf(aftercommaDoubleString);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return 0.1;
+        }
+    }
+
     // returns "true" if at least one input param is either null or empty
     public static boolean isNullOrEmpty(String... str){
         for (String s : str)
