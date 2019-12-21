@@ -78,7 +78,7 @@ public class DefaultBattleService implements BattleService {
         Hero defender = fighterHome;
 
         LOG.info("------------------------------------------------------------------------------------------------------------");
-        LOG.info(attacker.getName()+" (ATK:"+attacker.getAtk()+", DEF:"+attacker.getDef()+") with "+f.format(attacker.getHp())+" hp left fights against "+defender.getName()+" (ATK:"+defender.getAtk()+", DEF:"+defender.getDef()+") with "+f.format(defender.getHp())+" hp left.");
+        LOG.info(attacker.getHeroClass().toString()+" "+attacker.getName()+" at position:"+attacker.getPosition()+"(ATK:"+attacker.getAtk()+", DEF:"+attacker.getDef()+", DodgeChance:"+attacker.getDodgeChance()+", INI:"+attacker.getInitiative()+", CritChance:"+attacker.getCritChance()+") with "+f.format(attacker.getHp())+" hp left fights against "+defender.getHeroClass().toString()+" "+defender.getName()+" at position:"+defender.getPosition()+"(ATK:"+defender.getAtk()+", DEF:"+defender.getDef()+", DodgeChance:"+defender.getDodgeChance()+", INI:"+defender.getInitiative()+", CritChance:"+defender.getCritChance()+") with "+f.format(defender.getHp())+" hp left.");
 
         // battle until hp runs out
         while(defender.getHp() >= 0) {
