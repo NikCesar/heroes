@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 // Enables this microservice to register at Eureka-server (== registry-module)
 // Config-data for registering is in Application.properties
 @EnableEurekaClient
-@EnableFeignClients(basePackages = {"ch.bfh.swos.promoter.service.impl"})
+@EnableFeignClients
 @EnableHystrix
 // URL for Hystrix-Dashboard: http://localhost:4444/hystrix/
 @EnableHystrixDashboard
