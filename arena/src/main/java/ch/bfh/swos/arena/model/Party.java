@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Party extends RepresentationModel {
 
+    private Long id;
     private String name;
     private List<Hero> members;
 
@@ -25,6 +26,10 @@ public class Party extends RepresentationModel {
 
     public void setMembers(List<Hero> members) {
         this.members = members;
+    }
+
+    public boolean containsHero(Hero hero) {
+        return members.contains(hero);
     }
 
     @Override

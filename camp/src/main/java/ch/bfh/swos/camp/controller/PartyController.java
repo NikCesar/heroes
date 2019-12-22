@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Collections;
+
 import static org.springframework.hateoas.server.core.DummyInvocationUtils.methodOn;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
@@ -40,5 +42,12 @@ public class PartyController {
             System.err.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
+    }
+
+    @PatchMapping(value = "/{id}/swapHero")
+    public Party swapHeroes(@PathVariable Long id, @RequestParam(name = "hero1") int hero1, @RequestParam(name = "hero2") int hero2) {
+        Party party = partyService.findPartyById(id);
+        Collections.swap(party.getMembers(), hero1, hero2);
+        return party;
     }
 }

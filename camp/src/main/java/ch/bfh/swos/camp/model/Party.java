@@ -3,12 +3,17 @@ package ch.bfh.swos.camp.model;
 
 import org.springframework.hateoas.RepresentationModel;
 
+import javax.persistence.*;
 import java.util.List;
 
-
+@Entity
 public class Party extends RepresentationModel {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
     private String name;
+    @OneToMany
     private List<Hero> members;
 
     public String getName() {
