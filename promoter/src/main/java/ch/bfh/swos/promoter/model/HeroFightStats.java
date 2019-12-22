@@ -51,11 +51,11 @@ public class HeroFightStats {
     }
 
     public double getAvgHarmCaused(){
-        return harmCaused.stream().mapToDouble(val -> val).average().orElse(-1.0);
+        return harmCaused.stream().mapToDouble(val -> val).average().orElse(0.0);
     }
 
     public double getAvgHarmTaken(){
-        return harmTaken.stream().mapToDouble(val -> val).average().orElse(-1.0);
+        return harmTaken.stream().mapToDouble(val -> val).average().orElse(0.0);
     }
 
     public List<Double> getHarmCaused() { return harmCaused; }
