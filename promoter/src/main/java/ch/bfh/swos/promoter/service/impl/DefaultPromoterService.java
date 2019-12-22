@@ -10,6 +10,7 @@ import ch.bfh.swos.promoter.util.Helpers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,7 +26,6 @@ public class DefaultPromoterService implements PromoterService {
 
     @Autowired
     private ArenaClient arenaClient;
-
 
     @Override
     public BattleStats promoteFight(String tHomeName, String tAwayName) {

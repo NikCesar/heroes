@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Party extends RepresentationModel {
 
+    private Long id;
     private String name;
     private List<Hero> members;
 

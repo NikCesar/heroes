@@ -21,12 +21,12 @@ public class DefaultHeroService implements HeroService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultHeroService.class);
 
-    private static int MIN_ATK = 1;
-    private static int MAX_ATK = 100;
-    private static int MIN_DEF = 1;
-    private static int MAX_DEF = 100;
+    private static int MIN_ATK = 15;
+    private static int MAX_ATK = 25;
+    private static int MIN_DEF = 0;
+    private static int MAX_DEF = 10;
     private static int MIN_INITIATIVE = 1;
-    private static int MAX_INITIATIVE = 20;
+    private static int MAX_INITIATIVE = 10;
     private static int HP = 100;
 
     private HeroRepository heroRepository;
@@ -116,7 +116,6 @@ public class DefaultHeroService implements HeroService {
         h.setInitiative(hero.getInitiative());
         h.setDodgeChance(hero.getDodgeChance());
         h.setCritChance(hero.getCritChance());
-        h.setPosition(hero.getPosition());
 
         heroRepository.save(h);
     }

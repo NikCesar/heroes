@@ -4,6 +4,7 @@ import ch.bfh.swos.camp.exceptions.NotEnoughHeroesAvailableException;
 import ch.bfh.swos.camp.model.Hero;
 import ch.bfh.swos.camp.model.HeroType;
 import ch.bfh.swos.camp.model.Party;
+import ch.bfh.swos.camp.repositories.PartyRepository;
 import ch.bfh.swos.camp.service.PartyService;
 import ch.bfh.swos.camp.util.Helpers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,12 @@ import java.util.List;
 public class DefaultPartyService implements PartyService {
 
     private DefaultHeroService heroService;
+    private PartyRepository partyRepository;
 
     @Autowired
-    public DefaultPartyService(DefaultHeroService heroService){
+    public DefaultPartyService(DefaultHeroService heroService, PartyRepository partyRepository){
         this.heroService = heroService;
+        this.partyRepository = partyRepository;
     }
 
     @Override
@@ -38,7 +41,6 @@ public class DefaultPartyService implements PartyService {
         int pos = 0;
         for (int i: fourRandomInts) {
             Hero hero = allHeroes.get(i);
-            hero.setPosition(pos);
             hero.setHeroType(HeroType.convertIntToHeroType(pos));
             heroList.add(hero);
             pos++;
@@ -48,4 +50,8 @@ public class DefaultPartyService implements PartyService {
         return p;
     }
 
+    @Override
+    public Party findPartyById(Long id) {
+        return partyRepository.findPartyById(id);
+    }
 }

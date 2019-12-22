@@ -21,8 +21,6 @@ public class Hero {
     @Column
     private double hp;
     @Column
-    private int position;
-    @Column
     private int initiative;
     @Column
     private double dodgeChance;
@@ -76,14 +74,6 @@ public class Hero {
         this.hp = hp;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
     public int getInitiative() {
         return initiative;
     }
@@ -123,6 +113,6 @@ public class Hero {
 
     @Override
     public String toString(){
-        return String.format("name=%s;atk=%s;def=%s;hp=%s;position=%s;initiative=%s;dodgeChance=%s;critChance=%s;", this.getName(), this.getAtk(), this.getDef(), this.getHp(), this.getPosition(), this.getInitiative(), this.getDodgeChance(), this.getCritChance());
+        return String.format("name=%s;atk=%s;def=%s;hp=%s;initiative=%s;dodgeChance=%s;critChance=%s;", this.getName(), this.getAtk(), this.getDef(), this.getHp(), this.getInitiative(), this.getDodgeChance(), this.getCritChance());
     }
 }
