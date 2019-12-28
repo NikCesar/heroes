@@ -8,13 +8,13 @@ public class HeroFightStats {
     private int fightsWon;
     private int fightsLost;
 
-    private List<Double> harmCaused; // additional entry whenever hero attacks
-    private List<Double> harmTaken; // additional entry whenever hero defends oneself
+    private List<Double> damageCaused; // additional entry whenever hero attacks
+    private List<Double> damageTaken; // additional entry whenever hero defends oneself
 
 
     public HeroFightStats(){
-        harmCaused = new ArrayList<>();
-        harmTaken = new ArrayList<>();
+        damageCaused = new ArrayList<>();
+        damageTaken = new ArrayList<>();
     }
 
     /* Setters */
@@ -27,12 +27,12 @@ public class HeroFightStats {
         this.fightsLost = fightsLost;
     }
 
-    public void setHarmCaused(List<Double> harmCaused) {
-        this.harmCaused = harmCaused;
+    public void setDamageCaused(List<Double> damageCaused) {
+        this.damageCaused = damageCaused;
     }
 
-    public void setHarmTaken(List<Double> harmTaken) {
-        this.harmTaken = harmTaken;
+    public void setDamageTaken(List<Double> damageTaken) {
+        this.damageTaken = damageTaken;
     }
 
 
@@ -50,15 +50,15 @@ public class HeroFightStats {
         return fightsWon + fightsLost;
     }
 
-    public double getAvgHarmCaused(){
-        return harmCaused.stream().mapToDouble(val -> val).average().orElse(0.0);
+    public double getAvgDamageCaused(){
+        return damageCaused.stream().mapToDouble(val -> val).average().orElse(0.0);
     }
 
-    public double getAvgHarmTaken(){
-        return harmTaken.stream().mapToDouble(val -> val).average().orElse(0.0);
+    public double getAvgDamageTaken(){
+        return damageTaken.stream().mapToDouble(val -> val).average().orElse(0.0);
     }
 
-    public List<Double> getHarmCaused() { return harmCaused; }
+    public List<Double> getDamageCaused() { return damageCaused; }
 
-    public List<Double> getHarmTaken() { return harmTaken; }
+    public List<Double> getDamageTaken() { return damageTaken; }
 }
