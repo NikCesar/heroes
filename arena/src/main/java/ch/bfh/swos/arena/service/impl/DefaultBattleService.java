@@ -115,7 +115,7 @@ public class DefaultBattleService implements BattleService {
             }
 
             // Update fight-stats of involved heroes:
-            addHarmPointsToStats(attacker, defender, damage);
+            addDamagePointsToStats(attacker, defender, damage);
 
             if (defender.getHp() <= 0)
             {
@@ -135,9 +135,9 @@ public class DefaultBattleService implements BattleService {
         }
     }
 
-    private void addHarmPointsToStats(Hero attacker, Hero defender, double harmInCurrentAttack){
-        attacker.getFightStats().addHarmCaused(harmInCurrentAttack);
-        defender.getFightStats().addHarmTaken(harmInCurrentAttack);
+    private void addDamagePointsToStats(Hero attacker, Hero defender, double damageInCurrentAttack){
+        attacker.getFightStats().addDamageCaused(damageInCurrentAttack);
+        defender.getFightStats().addDamageTaken(damageInCurrentAttack);
     }
 
     private void addFightResultToStats(Hero winner, Hero loser){

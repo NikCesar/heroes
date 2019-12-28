@@ -68,8 +68,8 @@ public class PromoterController {
                "[fights: " + hero.getFightStats().getFightsTotal()+ "]; " +
                "[wins: " + hero.getFightStats().getFightsWon()+ "]; " +
                "[defeats: " + hero.getFightStats().getFightsLost() + "]; " +
-               "[Average harm caused: " + Helpers.round(hero.getFightStats().getAvgHarmCaused(), 2)+"]; " +
-               "[Average harm taken: " + Helpers.round(hero.getFightStats().getAvgHarmTaken(), 2) +"]";
+               "[Average harm caused: " + Helpers.round(hero.getFightStats().getAvgDamageCaused(), 2)+"]; " +
+               "[Average harm taken: " + Helpers.round(hero.getFightStats().getAvgDamageTaken(), 2) +"]";
     }
 }
 
