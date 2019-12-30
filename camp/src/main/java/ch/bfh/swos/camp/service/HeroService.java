@@ -1,8 +1,8 @@
 package ch.bfh.swos.camp.service;
 
-import ch.bfh.swos.camp.exceptions.HeroNotFoundException;
-import ch.bfh.swos.camp.exceptions.InvalidHeroException;
-import ch.bfh.swos.camp.exceptions.NotEnoughHeroesAvailableException;
+import ch.bfh.swos.camp.exception.HeroNotFoundException;
+import ch.bfh.swos.camp.exception.InvalidHeroException;
+import ch.bfh.swos.camp.exception.NotEnoughHeroesAvailableException;
 import ch.bfh.swos.camp.model.Hero;
 
 import java.util.List;

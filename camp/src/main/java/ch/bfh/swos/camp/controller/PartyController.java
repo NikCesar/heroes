@@ -1,6 +1,6 @@
 package ch.bfh.swos.camp.controller;
 
-import ch.bfh.swos.camp.exceptions.NotEnoughHeroesAvailableException;
+import ch.bfh.swos.camp.exception.NotEnoughHeroesAvailableException;
 import ch.bfh.swos.camp.model.Hero;
 import ch.bfh.swos.camp.model.Party;
 import ch.bfh.swos.camp.service.PartyService;

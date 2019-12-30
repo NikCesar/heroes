@@ -1,10 +1,10 @@
 package ch.bfh.swos.camp.service.impl;
 
-import ch.bfh.swos.camp.exceptions.HeroNotFoundException;
-import ch.bfh.swos.camp.exceptions.InvalidHeroException;
-import ch.bfh.swos.camp.exceptions.NotEnoughHeroesAvailableException;
+import ch.bfh.swos.camp.exception.HeroNotFoundException;
+import ch.bfh.swos.camp.exception.InvalidHeroException;
+import ch.bfh.swos.camp.exception.NotEnoughHeroesAvailableException;
 import ch.bfh.swos.camp.model.Hero;
-import ch.bfh.swos.camp.repositories.HeroRepository;
+import ch.bfh.swos.camp.repository.HeroRepository;
 import ch.bfh.swos.camp.service.HeroService;
 import ch.bfh.swos.camp.util.Helpers;
 import ch.bfh.swos.camp.util.NameList;

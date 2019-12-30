@@ -1,4 +1,4 @@
-package ch.bfh.swos.camp.repositories;
+package ch.bfh.swos.camp.repository;
 
 import ch.bfh.swos.camp.model.Hero;
 import org.springframework.data.jpa.repository.JpaRepository;

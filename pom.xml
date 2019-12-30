@@ -20,6 +20,7 @@
         <module>promoter</module>
         <module>registry</module>
         <module>frontend</module>
+        <module>equipment</module>
 	</modules>
 
     <properties>

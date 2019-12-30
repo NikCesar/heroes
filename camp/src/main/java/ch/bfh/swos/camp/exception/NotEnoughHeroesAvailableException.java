@@ -1,4 +1,4 @@
-package ch.bfh.swos.camp.exceptions;
+package ch.bfh.swos.camp.exception;
 
 
 public class NotEnoughHeroesAvailableException extends Exception {

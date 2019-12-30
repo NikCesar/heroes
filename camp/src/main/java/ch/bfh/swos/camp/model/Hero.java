@@ -29,6 +29,12 @@ public class Hero {
     @Column(name = "hero_class")
     @Enumerated(EnumType.STRING)
     private HeroType heroType;
+    @Column
+    private Long armorId;
+    @Column
+    private Long weaponId;
+    @Column
+    private Long mountId;
 
     // Do not persist:
     @Transient
@@ -106,10 +112,37 @@ public class Hero {
         this.heroType = heroType;
     }
 
-    public HeroFightStats getFightStats() { return fightStats; }
+    public HeroFightStats getFightStats() {
+        return fightStats;
+    }
 
-    public void setFightStats(HeroFightStats fightStats) { this.fightStats = fightStats; }
+    public void setFightStats(HeroFightStats fightStats) {
+        this.fightStats = fightStats;
+    }
 
+    public Long getArmorId() {
+        return armorId;
+    }
+
+    public void setArmorId(Long armorId) {
+        this.armorId = armorId;
+    }
+
+    public Long getWeaponId() {
+        return weaponId;
+    }
+
+    public void setWeaponId(Long weaponId) {
+        this.weaponId = weaponId;
+    }
+
+    public Long getMountId() {
+        return mountId;
+    }
+
+    public void setMountId(Long mountId) {
+        this.mountId = mountId;
+    }
 
     @Override
     public String toString(){

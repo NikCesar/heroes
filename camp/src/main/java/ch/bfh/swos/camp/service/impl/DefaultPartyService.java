@@ -1,10 +1,10 @@
 package ch.bfh.swos.camp.service.impl;
 
-import ch.bfh.swos.camp.exceptions.NotEnoughHeroesAvailableException;
+import ch.bfh.swos.camp.exception.NotEnoughHeroesAvailableException;
 import ch.bfh.swos.camp.model.Hero;
 import ch.bfh.swos.camp.model.HeroType;
 import ch.bfh.swos.camp.model.Party;
-import ch.bfh.swos.camp.repositories.PartyRepository;
+import ch.bfh.swos.camp.repository.PartyRepository;
 import ch.bfh.swos.camp.service.PartyService;
 import ch.bfh.swos.camp.util.Helpers;
 import org.springframework.beans.factory.annotation.Autowired;

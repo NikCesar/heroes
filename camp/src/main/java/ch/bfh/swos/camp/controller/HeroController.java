@@ -1,7 +1,7 @@
 package ch.bfh.swos.camp.controller;
 
-import ch.bfh.swos.camp.exceptions.HeroNotFoundException;
-import ch.bfh.swos.camp.exceptions.InvalidHeroException;
+import ch.bfh.swos.camp.exception.HeroNotFoundException;
+import ch.bfh.swos.camp.exception.InvalidHeroException;
 import ch.bfh.swos.camp.model.Hero;
 import ch.bfh.swos.camp.service.HeroService;
 import org.springframework.beans.factory.annotation.Autowired;
