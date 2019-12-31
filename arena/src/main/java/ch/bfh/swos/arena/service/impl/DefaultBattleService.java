@@ -88,13 +88,13 @@ public class DefaultBattleService implements BattleService {
         // check if defender dodges
         boolean dodged = Math.random() < defender.getDodgeChance();
         LOG.info("[COMBAT]\t"+attacker.getName() + " attacks " + defender.getName());
-        if (!dodged) {
+        if (dodged) {
             LOG.info("[DODGE]\t" + defender.getName() + " dodged " + attacker.getName() + "'s attack!");
         } else {
             boolean criticalHit = Math.random() < attacker.getCritChance();
             double damage = 0.0;
 
-            if (criticalHit) {
+            if (!criticalHit) {
                 damage = attacker.getAtk() - defender.getDef();
                 if (damage > 0) {
                     defender.setHp(defender.getHp() - damage);
