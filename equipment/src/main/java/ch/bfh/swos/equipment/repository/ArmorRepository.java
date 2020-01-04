@@ -1,5 +1,6 @@
 package ch.bfh.swos.equipment.repository;
 
+import ch.bfh.swos.equipment.exception.ArmorNotFoundException;
 import ch.bfh.swos.equipment.model.Armor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

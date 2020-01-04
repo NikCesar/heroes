@@ -27,8 +27,4 @@ public interface HeroService {
 
     int countHeroByAtkGreaterThan(int value);
 
-
-
-
-
 }

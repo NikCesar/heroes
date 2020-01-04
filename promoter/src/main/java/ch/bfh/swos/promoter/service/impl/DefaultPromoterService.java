@@ -3,14 +3,12 @@ package ch.bfh.swos.promoter.service.impl;
 import ch.bfh.swos.promoter.client.ArenaClient;
 import ch.bfh.swos.promoter.client.CampClient;
 import ch.bfh.swos.promoter.model.BattleStats;
-import ch.bfh.swos.promoter.model.Hero;
 import ch.bfh.swos.promoter.model.Party;
 import ch.bfh.swos.promoter.service.PromoterService;
 import ch.bfh.swos.promoter.util.Helpers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
