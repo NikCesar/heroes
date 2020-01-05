@@ -4,6 +4,7 @@ import ch.bfh.swos.equipment.client.CampClient;
 import ch.bfh.swos.equipment.exception.HeroNotFoundException;
 import ch.bfh.swos.equipment.exception.WeaponNotFoundException;
 import ch.bfh.swos.equipment.model.Hero;
+import ch.bfh.swos.equipment.model.Rarity;
 import ch.bfh.swos.equipment.model.Weapon;
 import ch.bfh.swos.equipment.repository.WeaponRepository;
 import ch.bfh.swos.equipment.service.WeaponService;
@@ -25,6 +26,16 @@ public class DefaultWeaponService implements WeaponService {
 
     @Override
     public Weapon saveWeapon(Weapon weapon) {
+        return weaponRepository.save(weapon);
+    }
+
+    @Override
+    public Weapon createWeapon(String name, Rarity rarity, int atk, double critChance) {
+        Weapon weapon = new Weapon();
+        weapon.setName(name);
+        weapon.setRarity(rarity);
+        weapon.setAtk(atk);
+        weapon.setCritChance(critChance);
         return weaponRepository.save(weapon);
     }
 

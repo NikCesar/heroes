@@ -5,6 +5,7 @@ import ch.bfh.swos.equipment.exception.HeroNotFoundException;
 import ch.bfh.swos.equipment.exception.MountNotFoundException;
 import ch.bfh.swos.equipment.model.Hero;
 import ch.bfh.swos.equipment.model.Mount;
+import ch.bfh.swos.equipment.model.Rarity;
 import ch.bfh.swos.equipment.repository.MountRepository;
 import ch.bfh.swos.equipment.service.MountService;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,16 @@ public class DefaultMountService implements MountService {
 
     @Override
     public Mount saveMount(Mount mount) {
+        return mountRepository.save(mount);
+    }
+
+    @Override
+    public Mount createMount(String name, Rarity rarity, double hp, int initiative) {
+        Mount mount = new Mount();
+        mount.setName(name);
+        mount.setRarity(rarity);
+        mount.setHp(hp);
+        mount.setInitiative(initiative);
         return mountRepository.save(mount);
     }
 

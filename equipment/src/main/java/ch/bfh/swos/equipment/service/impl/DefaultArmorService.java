@@ -5,6 +5,7 @@ import ch.bfh.swos.equipment.exception.ArmorNotFoundException;
 import ch.bfh.swos.equipment.exception.HeroNotFoundException;
 import ch.bfh.swos.equipment.model.Armor;
 import ch.bfh.swos.equipment.model.Hero;
+import ch.bfh.swos.equipment.model.Rarity;
 import ch.bfh.swos.equipment.repository.ArmorRepository;
 import ch.bfh.swos.equipment.service.ArmorService;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,16 @@ public class DefaultArmorService implements ArmorService {
 
     @Override
     public Armor saveArmor(Armor armor) {
+        return armorRepository.save(armor);
+    }
+
+    @Override
+    public Armor createArmor(String name, Rarity rarity, int def, double dodgeChance) {
+        Armor armor = new Armor();
+        armor.setName(name);
+        armor.setRarity(rarity);
+        armor.setDef(def);
+        armor.setDodgeChance(dodgeChance);
         return armorRepository.save(armor);
     }
 
