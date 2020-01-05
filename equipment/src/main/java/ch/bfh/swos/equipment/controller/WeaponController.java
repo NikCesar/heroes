@@ -1,5 +1,6 @@
 package ch.bfh.swos.equipment.controller;
 
+import ch.bfh.swos.equipment.exception.WeaponNotFoundException;
 import ch.bfh.swos.equipment.model.Weapon;
 import ch.bfh.swos.equipment.service.WeaponService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ public class WeaponController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Weapon> findWeapon(@PathVariable Long id) {
+    public Optional<Weapon> findWeapon(@PathVariable Long id) throws WeaponNotFoundException {
         return weaponService.findWeaponById(id);
     }
 }

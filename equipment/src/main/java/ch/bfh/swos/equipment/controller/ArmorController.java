@@ -1,5 +1,6 @@
 package ch.bfh.swos.equipment.controller;
 
+import ch.bfh.swos.equipment.exception.ArmorNotFoundException;
 import ch.bfh.swos.equipment.model.Armor;
 import ch.bfh.swos.equipment.service.ArmorService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ public class ArmorController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Armor> findArmor(@PathVariable Long id) {
+    public Optional<Armor> findArmor(@PathVariable Long id) throws ArmorNotFoundException {
         return armorService.findArmorById(id);
     }
 }

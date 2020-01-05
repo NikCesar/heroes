@@ -1,5 +1,6 @@
 package ch.bfh.swos.equipment.controller;
 
+import ch.bfh.swos.equipment.exception.MountNotFoundException;
 import ch.bfh.swos.equipment.model.Mount;
 import ch.bfh.swos.equipment.service.MountService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ public class MountController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Mount> findMount(@PathVariable Long id) {
+    public Optional<Mount> findMount(@PathVariable Long id) throws MountNotFoundException {
         return mountService.findMountById(id);
     }
 }
