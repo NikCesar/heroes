@@ -61,7 +61,7 @@ public class DefaultMountService implements MountService {
     }
 
     @Override
-    public void equip(String heroId, Long mountId) throws HeroNotFoundException, MountNotFoundException, InvalidHeroException {
+    public Hero equip(String heroId, Long mountId) throws HeroNotFoundException, MountNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
         Mount equippedMount = mountRepository.findById(hero.getMountId()).get();
         Mount newMount = mountRepository.findById(mountId).get();
@@ -79,10 +79,11 @@ public class DefaultMountService implements MountService {
         hero.setInitiative(hero.getInitiative() + newMount.getInitiative());
         hero.setMountId(mountId);
         campClient.updateHero(hero);
+        return hero;
     }
 
     @Override
-    public void deequip(String heroId, Long armorId) throws HeroNotFoundException, InvalidHeroException {
+    public Hero unequip(String heroId, Long armorId) throws HeroNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
         Mount mount = mountRepository.findById(armorId).get();
 
@@ -95,5 +96,6 @@ public class DefaultMountService implements MountService {
             hero.setMountId(null);
         }
         campClient.updateHero(hero);
+        return hero;
     }
 }

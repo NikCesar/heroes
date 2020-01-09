@@ -61,7 +61,7 @@ public class DefaultWeaponService implements WeaponService {
     }
 
     @Override
-    public void equip(String heroId, Long weaponId) throws HeroNotFoundException, WeaponNotFoundException, InvalidHeroException {
+    public Hero equip(String heroId, Long weaponId) throws HeroNotFoundException, WeaponNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
         Weapon equippedWeapon = weaponRepository.findById(hero.getWeaponId()).get();
         Weapon newWeapon = weaponRepository.findById(weaponId).get();
@@ -79,10 +79,11 @@ public class DefaultWeaponService implements WeaponService {
         hero.setCritChance(hero.getCritChance() + newWeapon.getCritChance());
         hero.setWeaponId(weaponId);
         campClient.updateHero(hero);
+        return hero;
     }
 
     @Override
-    public void deequip(String heroId, Long weaponId) throws HeroNotFoundException, InvalidHeroException {
+    public Hero unequip(String heroId, Long weaponId) throws HeroNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
         Weapon weapon = weaponRepository.findById(weaponId).get();
 
@@ -94,5 +95,6 @@ public class DefaultWeaponService implements WeaponService {
             hero.setWeaponId(null);
         }
         campClient.updateHero(hero);
+        return hero;
     }
 }

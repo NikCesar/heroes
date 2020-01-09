@@ -1,12 +1,13 @@
 package ch.bfh.swos.equipment.controller;
 
+import ch.bfh.swos.equipment.exception.ArmorNotFoundException;
+import ch.bfh.swos.equipment.exception.HeroNotFoundException;
+import ch.bfh.swos.equipment.exception.InvalidHeroException;
 import ch.bfh.swos.equipment.exception.WeaponNotFoundException;
+import ch.bfh.swos.equipment.model.Hero;
 import ch.bfh.swos.equipment.model.Weapon;
 import ch.bfh.swos.equipment.service.WeaponService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,5 +30,15 @@ public class WeaponController {
     @GetMapping("/{id}")
     public Optional<Weapon> findWeapon(@PathVariable Long id) throws WeaponNotFoundException {
         return weaponService.findWeaponById(id);
+    }
+
+    @PutMapping("/{heroId}/equip/{weaponId}")
+    public Hero equipWeapon(@PathVariable String heroId, @PathVariable Long weaponId) throws WeaponNotFoundException, HeroNotFoundException, InvalidHeroException {
+        return weaponService.equip(heroId, weaponId);
+    }
+
+    @PutMapping("/{heroId}/unequip/{weaponId}")
+    public Hero unequipWeapon(@PathVariable String heroId, @PathVariable Long weaponId) throws WeaponNotFoundException, HeroNotFoundException, InvalidHeroException {
+        return weaponService.unequip(heroId, weaponId);
     }
 }

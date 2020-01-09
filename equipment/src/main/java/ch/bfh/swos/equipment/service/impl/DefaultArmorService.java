@@ -61,7 +61,7 @@ public class DefaultArmorService implements ArmorService {
     }
 
     @Override
-    public void equip(String heroId, Long armorId) throws HeroNotFoundException, ArmorNotFoundException, InvalidHeroException {
+    public Hero equip(String heroId, Long armorId) throws HeroNotFoundException, ArmorNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
         Armor equippedArmor = armorRepository.findById(hero.getArmorId()).get();
         Armor newArmor = armorRepository.findById(armorId).get();
@@ -79,10 +79,11 @@ public class DefaultArmorService implements ArmorService {
         hero.setDodgeChance(hero.getDodgeChance() + newArmor.getDodgeChance());
         hero.setArmorId(armorId);
         campClient.updateHero(hero);
+        return hero;
     }
 
     @Override
-    public void deequip(String heroId, Long armorId) throws HeroNotFoundException, InvalidHeroException {
+    public Hero unequip(String heroId, Long armorId) throws HeroNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
         Armor armor = armorRepository.findById(armorId).get();
 
@@ -95,5 +96,6 @@ public class DefaultArmorService implements ArmorService {
             hero.setArmorId(null);
         }
         campClient.updateHero(hero);
+        return hero;
     }
 }
