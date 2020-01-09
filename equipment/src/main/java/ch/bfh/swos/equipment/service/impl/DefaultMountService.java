@@ -2,6 +2,7 @@ package ch.bfh.swos.equipment.service.impl;
 
 import ch.bfh.swos.equipment.client.CampClient;
 import ch.bfh.swos.equipment.exception.HeroNotFoundException;
+import ch.bfh.swos.equipment.exception.InvalidHeroException;
 import ch.bfh.swos.equipment.exception.MountNotFoundException;
 import ch.bfh.swos.equipment.model.Hero;
 import ch.bfh.swos.equipment.model.Mount;
@@ -60,7 +61,7 @@ public class DefaultMountService implements MountService {
     }
 
     @Override
-    public void equip(String heroId, Long mountId) throws HeroNotFoundException, MountNotFoundException {
+    public void equip(String heroId, Long mountId) throws HeroNotFoundException, MountNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
         Mount equippedMount = mountRepository.findById(hero.getMountId()).get();
         Mount newMount = mountRepository.findById(mountId).get();
@@ -77,10 +78,11 @@ public class DefaultMountService implements MountService {
         hero.setHp(hero.getHp() + newMount.getHp());
         hero.setInitiative(hero.getInitiative() + newMount.getInitiative());
         hero.setMountId(mountId);
+        campClient.updateHero(hero);
     }
 
     @Override
-    public void deequip(String heroId, Long armorId) throws HeroNotFoundException {
+    public void deequip(String heroId, Long armorId) throws HeroNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
         Mount mount = mountRepository.findById(armorId).get();
 
@@ -92,5 +94,6 @@ public class DefaultMountService implements MountService {
 
             hero.setMountId(null);
         }
+        campClient.updateHero(hero);
     }
 }

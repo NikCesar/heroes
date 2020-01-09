@@ -1,6 +1,7 @@
 package ch.bfh.swos.equipment.service;
 
 import ch.bfh.swos.equipment.exception.HeroNotFoundException;
+import ch.bfh.swos.equipment.exception.InvalidHeroException;
 import ch.bfh.swos.equipment.exception.WeaponNotFoundException;
 import ch.bfh.swos.equipment.model.Rarity;
 import ch.bfh.swos.equipment.model.Weapon;
@@ -16,6 +17,6 @@ public interface WeaponService {
     List<Weapon> findAll();
     void deleteWeapon(Long id) throws WeaponNotFoundException;
     void deleteAll();
-    void equip(String heroId, Long armorId) throws HeroNotFoundException, WeaponNotFoundException;
-    void deequip(String heroId, Long armorId) throws HeroNotFoundException, WeaponNotFoundException;
+    void equip(String heroId, Long armorId) throws HeroNotFoundException, WeaponNotFoundException, InvalidHeroException;
+    void deequip(String heroId, Long armorId) throws HeroNotFoundException, WeaponNotFoundException, InvalidHeroException;
 }

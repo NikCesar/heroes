@@ -3,6 +3,7 @@ package ch.bfh.swos.equipment.service.impl;
 import ch.bfh.swos.equipment.client.CampClient;
 import ch.bfh.swos.equipment.exception.ArmorNotFoundException;
 import ch.bfh.swos.equipment.exception.HeroNotFoundException;
+import ch.bfh.swos.equipment.exception.InvalidHeroException;
 import ch.bfh.swos.equipment.model.Armor;
 import ch.bfh.swos.equipment.model.Hero;
 import ch.bfh.swos.equipment.model.Rarity;
@@ -60,7 +61,7 @@ public class DefaultArmorService implements ArmorService {
     }
 
     @Override
-    public void equip(String heroId, Long armorId) throws HeroNotFoundException, ArmorNotFoundException {
+    public void equip(String heroId, Long armorId) throws HeroNotFoundException, ArmorNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
         Armor equippedArmor = armorRepository.findById(hero.getArmorId()).get();
         Armor newArmor = armorRepository.findById(armorId).get();
@@ -77,10 +78,11 @@ public class DefaultArmorService implements ArmorService {
         hero.setDef(hero.getDef() + newArmor.getDef());
         hero.setDodgeChance(hero.getDodgeChance() + newArmor.getDodgeChance());
         hero.setArmorId(armorId);
+        campClient.updateHero(hero);
     }
 
     @Override
-    public void deequip(String heroId, Long armorId) throws HeroNotFoundException {
+    public void deequip(String heroId, Long armorId) throws HeroNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
         Armor armor = armorRepository.findById(armorId).get();
 
@@ -92,5 +94,6 @@ public class DefaultArmorService implements ArmorService {
 
             hero.setArmorId(null);
         }
+        campClient.updateHero(hero);
     }
 }
