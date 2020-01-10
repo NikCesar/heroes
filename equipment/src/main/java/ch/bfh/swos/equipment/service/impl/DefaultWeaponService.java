@@ -67,7 +67,7 @@ public class DefaultWeaponService implements WeaponService {
         Weapon newWeapon = weaponRepository.findById(weaponId).get();
 
         if (equippedWeapon == null || newWeapon == null) {
-            throw new WeaponNotFoundException("Armor does not exist");
+            throw new WeaponNotFoundException("Weapon does not exist");
         }
 
         if (hero.getArmorId() != null) {
