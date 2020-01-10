@@ -13,11 +13,11 @@ public class FallbackCampClient implements CampClient {
 
     @Override
     public EntityModel<Hero> findHeroById(String id) throws HeroNotFoundException {
-        throw new ResponseStatusException(HttpStatus.REQUEST_TIMEOUT, "The camp is currently not available");
+        throw new ResponseStatusException(HttpStatus.REQUEST_TIMEOUT, "Camp not available: FallbackCampClient in Equipment module");
     }
 
     @Override
     public void updateHero(Hero hero) throws InvalidHeroException, HeroNotFoundException {
-        throw new ResponseStatusException(HttpStatus.REQUEST_TIMEOUT, "The camp is currently not available");
+        throw new ResponseStatusException(HttpStatus.REQUEST_TIMEOUT, "Camp not available: FallbackCampClient in Equipment module");
     }
 }
