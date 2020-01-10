@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(value = "camp-service", fallback = FallbackCampClient.class)
 public interface CampClient {
 
-    @GetMapping("/{id}")
+    @GetMapping("/heroes/{id}")
     EntityModel<Hero> findHeroById(@PathVariable String id) throws HeroNotFoundException;
 
-    @PutMapping
+    @PutMapping("/heroes")
     void updateHero(@RequestBody Hero hero) throws InvalidHeroException, HeroNotFoundException;
 }
