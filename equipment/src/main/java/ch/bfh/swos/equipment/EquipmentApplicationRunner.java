@@ -50,6 +50,7 @@ public class EquipmentApplicationRunner implements ApplicationRunner {
             weaponService.createWeapon("Fire Falchion", Rarity.RARE, 4, 0.1);
             weaponService.createWeapon("Enchanted Bastardsword", Rarity.EPIC, 6, 0.15);
             weaponService.createWeapon("Spellwoven Longsword", Rarity.LEGENDARY, 8, 0.2);
+            weaponService.createWeapon("Sharpened stick", Rarity.COMMON, -4, 0.25);
         }
     }
 }
