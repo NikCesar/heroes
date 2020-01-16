@@ -37,8 +37,8 @@ public class MountController {
         return mountService.equip(heroId, mountId);
     }
 
-    @PutMapping("/{heroId}/unequip/{mountId}")
-    public Hero unequipArmor(@PathVariable String heroId, @PathVariable Long mountId) throws MountNotFoundException, HeroNotFoundException, InvalidHeroException {
-        return mountService.unequip(heroId, mountId);
+    @PutMapping("/{heroId}/unequip")
+    public Hero unequipArmor(@PathVariable String heroId) throws MountNotFoundException, HeroNotFoundException, InvalidHeroException {
+        return mountService.unequip(heroId);
     }
 }

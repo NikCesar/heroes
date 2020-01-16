@@ -19,5 +19,5 @@ public interface MountService {
     void deleteMount(Long id) throws MountNotFoundException;
     void deleteAll();
     Hero equip(String heroId, Long armorId) throws HeroNotFoundException, MountNotFoundException, InvalidHeroException;
-    Hero unequip(String heroId, Long armorId) throws HeroNotFoundException, MountNotFoundException, InvalidHeroException;
+    Hero unequip(String heroId) throws HeroNotFoundException, MountNotFoundException, InvalidHeroException;
 }

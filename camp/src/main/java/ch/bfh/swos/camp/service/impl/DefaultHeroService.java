@@ -103,21 +103,11 @@ public class DefaultHeroService implements HeroService {
             throw new InvalidHeroException("Update failed! Hero-id or hero-name are missing!");
         }
 
-        Hero h = this.heroRepository.findById(hero.getId()).get();
-
-        if (h == null) {
+        if (hero.getId() == null) {
             throw new HeroNotFoundException("Update failed! Specified hero-id could not be found!");
         }
 
-        h.setName(hero.getName());
-        h.setAtk(hero.getAtk());
-        h.setDef(hero.getDef());
-        h.setHp(hero.getHp());
-        h.setInitiative(hero.getInitiative());
-        h.setDodgeChance(hero.getDodgeChance());
-        h.setCritChance(hero.getCritChance());
-
-        heroRepository.save(h);
+        heroRepository.save(hero);
     }
 
     @Override

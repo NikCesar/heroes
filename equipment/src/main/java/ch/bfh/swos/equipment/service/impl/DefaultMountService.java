@@ -63,39 +63,41 @@ public class DefaultMountService implements MountService {
     @Override
     public Hero equip(String heroId, Long mountId) throws HeroNotFoundException, MountNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
-        Mount equippedMount = mountRepository.findById(hero.getMountId()).get();
         Mount newMount = mountRepository.findById(mountId).get();
 
-        if (equippedMount == null || newMount == null) {
+        if (newMount == null) {
             throw new MountNotFoundException("Armor does not exist");
         }
 
-        if (hero.getArmorId() != null) {
+        if (hero.getMountId() != null) {
+            Mount equippedMount = mountRepository.findById(hero.getMountId()).get();
             hero.setHp(hero.getHp() - equippedMount.getHp());
             hero.setInitiative(hero.getInitiative() - equippedMount.getInitiative());
         }
 
+        hero.setMountId(mountId);
         hero.setHp(hero.getHp() + newMount.getHp());
         hero.setInitiative(hero.getInitiative() + newMount.getInitiative());
-        hero.setMountId(mountId);
+
         campClient.updateHero(hero);
         return hero;
     }
 
     @Override
-    public Hero unequip(String heroId, Long armorId) throws HeroNotFoundException, InvalidHeroException {
+    public Hero unequip(String heroId) throws HeroNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
-        Mount mount = mountRepository.findById(armorId).get();
 
-        if (mount == null) {
-            if (hero.getArmorId() != null) {
+        if (hero.getMountId() != null) {
+            Mount mount = mountRepository.findById(hero.getMountId()).get();
+
+            if (mount != null) {
                 hero.setHp(hero.getHp() - mount.getHp());
-                hero.setInitiative(hero.getInitiative() - mount.getInitiative());
-            }
+                hero.setInitiative((int)(Math.round((hero.getInitiative() - mount.getInitiative()) * 1000d) / 1000d));
+                hero.setMountId(null);
 
-            hero.setMountId(null);
+                campClient.updateHero(hero);
+            }
         }
-        campClient.updateHero(hero);
         return hero;
     }
 }

@@ -137,7 +137,21 @@ public class Hero {
     }
 
     @Override
-    public String toString(){
-        return String.format("name=%s;atk=%s;def=%s;hp=%s;initiative=%s;dodgeChance=%s;critChance=%s;", this.getName(), this.getAtk(), this.getDef(), this.getHp(), this.getInitiative(), this.getDodgeChance(), this.getCritChance());
+    public String toString() {
+        return "Hero{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", atk=" + atk +
+                ", def=" + def +
+                ", hp=" + hp +
+                ", initiative=" + initiative +
+                ", dodgeChance=" + dodgeChance +
+                ", critChance=" + critChance +
+                ", heroType=" + heroType +
+                ", armorId=" + armorId +
+                ", weaponId=" + weaponId +
+                ", mountId=" + mountId +
+                ", fightStats=" + fightStats +
+                '}';
     }
 }

@@ -63,38 +63,41 @@ public class DefaultWeaponService implements WeaponService {
     @Override
     public Hero equip(String heroId, Long weaponId) throws HeroNotFoundException, WeaponNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
-        Weapon equippedWeapon = weaponRepository.findById(hero.getWeaponId()).get();
         Weapon newWeapon = weaponRepository.findById(weaponId).get();
 
-        if (equippedWeapon == null || newWeapon == null) {
+        if (newWeapon == null) {
             throw new WeaponNotFoundException("Weapon does not exist");
         }
 
-        if (hero.getArmorId() != null) {
+        if (hero.getWeaponId() != null) {
+            Weapon equippedWeapon = weaponRepository.findById(hero.getWeaponId()).get();
             hero.setAtk(hero.getAtk() - equippedWeapon.getAtk());
             hero.setCritChance(hero.getCritChance() - equippedWeapon.getCritChance());
         }
 
+        hero.setWeaponId(weaponId);
         hero.setAtk(hero.getAtk() + newWeapon.getAtk());
         hero.setCritChance(hero.getCritChance() + newWeapon.getCritChance());
-        hero.setWeaponId(weaponId);
+
         campClient.updateHero(hero);
         return hero;
     }
 
     @Override
-    public Hero unequip(String heroId, Long weaponId) throws HeroNotFoundException, InvalidHeroException {
+    public Hero unequip(String heroId) throws HeroNotFoundException, InvalidHeroException {
         Hero hero = campClient.findHeroById(heroId).getContent();
-        Weapon weapon = weaponRepository.findById(weaponId).get();
 
-        if (weapon == null) {
-            if (hero.getArmorId() != null) {
+        if (hero.getWeaponId() != null) {
+            Weapon weapon = weaponRepository.findById(hero.getWeaponId()).get();
+
+            if (weapon != null) {
                 hero.setAtk(hero.getAtk() - weapon.getAtk());
-                hero.setCritChance(hero.getCritChance() - weapon.getCritChance());
+                hero.setCritChance((double)Math.round((hero.getCritChance() - weapon.getCritChance()) * 1000d) / 1000d);
+                hero.setWeaponId(null);
+
+                campClient.updateHero(hero);
             }
-            hero.setWeaponId(null);
         }
-        campClient.updateHero(hero);
         return hero;
     }
 }

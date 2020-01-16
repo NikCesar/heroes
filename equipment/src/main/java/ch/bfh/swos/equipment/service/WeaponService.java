@@ -19,5 +19,5 @@ public interface WeaponService {
     void deleteWeapon(Long id) throws WeaponNotFoundException;
     void deleteAll();
     Hero equip(String heroId, Long armorId) throws HeroNotFoundException, WeaponNotFoundException, InvalidHeroException;
-    Hero unequip(String heroId, Long armorId) throws HeroNotFoundException, WeaponNotFoundException, InvalidHeroException;
+    Hero unequip(String heroId) throws HeroNotFoundException, WeaponNotFoundException, InvalidHeroException;
 }

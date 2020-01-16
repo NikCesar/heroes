@@ -37,8 +37,8 @@ public class WeaponController {
         return weaponService.equip(heroId, weaponId);
     }
 
-    @PutMapping("/{heroId}/unequip/{weaponId}")
-    public Hero unequipWeapon(@PathVariable String heroId, @PathVariable Long weaponId) throws WeaponNotFoundException, HeroNotFoundException, InvalidHeroException {
-        return weaponService.unequip(heroId, weaponId);
+    @PutMapping("/{heroId}/unequip")
+    public Hero unequipWeapon(@PathVariable String heroId) throws WeaponNotFoundException, HeroNotFoundException, InvalidHeroException {
+        return weaponService.unequip(heroId);
     }
 }
