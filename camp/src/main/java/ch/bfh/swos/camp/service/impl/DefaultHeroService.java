@@ -3,7 +3,9 @@ package ch.bfh.swos.camp.service.impl;
 import ch.bfh.swos.camp.exception.HeroNotFoundException;
 import ch.bfh.swos.camp.exception.InvalidHeroException;
 import ch.bfh.swos.camp.exception.NotEnoughHeroesAvailableException;
+import ch.bfh.swos.camp.model.AttributeBoundaries;
 import ch.bfh.swos.camp.model.Hero;
+import ch.bfh.swos.camp.model.HeroType;
 import ch.bfh.swos.camp.repository.HeroRepository;
 import ch.bfh.swos.camp.service.HeroService;
 import ch.bfh.swos.camp.util.Helpers;
@@ -20,14 +22,6 @@ import java.util.List;
 public class DefaultHeroService implements HeroService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultHeroService.class);
-
-    private static int MIN_ATK = 15;
-    private static int MAX_ATK = 25;
-    private static int MIN_DEF = 0;
-    private static int MAX_DEF = 10;
-    private static int MIN_INITIATIVE = 1;
-    private static int MAX_INITIATIVE = 10;
-    private static int HP = 100;
 
     private HeroRepository heroRepository;
 
@@ -53,7 +47,7 @@ public class DefaultHeroService implements HeroService {
     }
 
     @Override
-    public List<Hero> createRandomHeroes(int numberOfHeroesToCreate) throws NotEnoughHeroesAvailableException {
+    public List<Hero> createRandomHeroes(int numberOfHeroesToCreate, HeroType heroType) throws NotEnoughHeroesAvailableException {
         String[] allNames = NameList.getNamesList();
 
         if(numberOfHeroesToCreate > allNames.length){
@@ -64,7 +58,7 @@ public class DefaultHeroService implements HeroService {
         List<Integer> distinctRandomInts = Helpers.getDistinctRandomInts(0, (allNames.length - 1), numberOfHeroesToCreate);
 
         for(int i: distinctRandomInts){
-            createdHeroes.add(createHeroByName(allNames[i]));
+            createdHeroes.add(createHeroByNameAndType(allNames[i], heroType));
         }
         return createdHeroes;
     }
@@ -76,19 +70,23 @@ public class DefaultHeroService implements HeroService {
     }
 
     @Override
-    public Hero createHeroByName(String name) {
+    public Hero createHeroByNameAndType(String name, HeroType heroType) {
 
         Hero h = new Hero(name);
-        h.setAtk(Helpers.getRandomInt(MIN_ATK, MAX_ATK));
-        h.setDef(Helpers.getRandomInt(MIN_DEF, MAX_DEF));
-        h.setCritChance(Helpers.getChanceAsDouble());
-        h.setDodgeChance(Helpers.getChanceAsDouble());
-        h.setInitiative(Helpers.getRandomInt(MIN_INITIATIVE, MAX_INITIATIVE));
-        h.setHp(HP);
+        h.setHeroType(heroType);
+
+        AttributeBoundaries b = HeroType.getAttrBoundariesByHeroType(heroType);
+
+        h.setAtk(Helpers.getRandomInt(b.getAtkMin(), b.getAtkMax()));
+        h.setDef(Helpers.getRandomInt(b.getDefMin(), b.getDefMax()));
+        h.setHp(Helpers.getRandomDouble(b.getHpMin(), b.getHpMax()));
+
+        h.setCritChance(Helpers.getRandomDouble(b.getCritChanceMin(), b.getCritChanceMax()));
+        h.setDodgeChance(Helpers.getRandomDouble(b.getDodgeChanceMin(), b.getDodgeChanceMax()));
+        h.setInitiative(Helpers.getRandomInt(b.getInitiativeMin(), b.getInitiativeMax()));
 
         h = heroRepository.save(h);
         Hero heroFromDb = heroRepository.findById(h.getId()).get();
-        // System.err.println(heroFromDb);
 
         LOGGER.info(heroFromDb.toString());
 

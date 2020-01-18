@@ -1,6 +1,7 @@
 package ch.bfh.swos.camp;
 
 import ch.bfh.swos.camp.model.Hero;
+import ch.bfh.swos.camp.model.HeroType;
 import ch.bfh.swos.camp.service.HeroService;
 import ch.bfh.swos.camp.service.PartyService;
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -58,7 +60,13 @@ public class CampApplication implements ApplicationRunner {
             this.heroService.deleteAllHeroes();
             // Populate database with 20 randomly created heroes:
             System.err.println("\nCreated Heroes:");
-            List<Hero> heroes = this.heroService.createRandomHeroes(500);
+
+            // Create 20 heroes for each hero-type:
+            List<Hero> heroes = new ArrayList<>();
+            for (HeroType hType : HeroType.values()) {
+                heroes.addAll(this.heroService.createRandomHeroes(20, hType));
+            }
+
             // Create a random party and print it out:
             System.err.println(partyService.createParty("\n\nMonster Party"));
             // Calculate how many of the heroes in the database have an ATK > 50:

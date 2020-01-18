@@ -18,8 +18,27 @@ public class Helpers {
         return r.nextInt(high-low) + low;
     }
 
+    public static double getRandomDouble(double low, double high) {
+        Random r = new Random();
+        double randDouble = (low + (high - low) * r.nextDouble());
+        return round(randDouble, 2);
+    }
+
+    private static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
+    }
+/*
     public static double getChanceAsDouble() {
-        int randomInt = getRandomInt(1, 100);
+        return getChanceAsDouble(1, 100);
+    }
+
+    public static double getChanceAsDouble(int low, int high) {
+        int randomInt = getRandomInt(low, high);
         try {
             String afterCommaDoubleString = "0." + randomInt;
             return Double.valueOf(afterCommaDoubleString);
@@ -28,7 +47,7 @@ public class Helpers {
             return 0.1;
         }
     }
-
+*/
     // returns "true" if at least one input param is either null or empty
     public static boolean isNullOrEmpty(String... str){
         for (String s : str)

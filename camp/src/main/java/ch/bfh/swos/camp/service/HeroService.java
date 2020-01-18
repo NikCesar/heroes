@@ -4,6 +4,7 @@ import ch.bfh.swos.camp.exception.HeroNotFoundException;
 import ch.bfh.swos.camp.exception.InvalidHeroException;
 import ch.bfh.swos.camp.exception.NotEnoughHeroesAvailableException;
 import ch.bfh.swos.camp.model.Hero;
+import ch.bfh.swos.camp.model.HeroType;
 
 import java.util.List;
 
@@ -15,9 +16,9 @@ public interface HeroService {
 
     // Returns uuid of the created hero:
     String createHero(Hero hero);
-    Hero createHeroByName(String name);
+    Hero createHeroByNameAndType(String name, HeroType heroType);
 
-    List<Hero> createRandomHeroes(int numberOfHeroesToCreate) throws NotEnoughHeroesAvailableException;
+    List<Hero> createRandomHeroes(int numberOfHeroesToCreate, HeroType heroType) throws NotEnoughHeroesAvailableException;
 
     void updateHero(Hero hero) throws InvalidHeroException, HeroNotFoundException;
 
