@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collections;
+import java.util.List;
 
 import static org.springframework.hateoas.server.core.DummyInvocationUtils.methodOn;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -17,14 +18,24 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 // localhost:2222/
 
 @RestController
-// @RequestMapping("/parties")
+@RequestMapping("/parties")
 public class PartyController {
 
     @Autowired
     PartyService partyService;
 
-    // Endpoint to check if Rest Controller works:
     @GetMapping
+    public List<Party> findAll() {
+        return partyService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Party findById(@PathVariable Long id) {
+        return partyService.findPartyById(id);
+    }
+
+    // Endpoint to check if Rest Controller works:
+    @GetMapping("/random")
     public @ResponseBody Party getRandomParty() throws NotEnoughHeroesAvailableException {
         return partyService.createParty("Test Party");
     }
@@ -42,6 +53,14 @@ public class PartyController {
             System.err.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
+    }
+
+    @PutMapping("/{id}")
+    public Party updateParty(@PathVariable Long id, @RequestBody Party party) {
+        Party existingParty = partyService.findPartyById(id);
+        existingParty.setName(party.getName());
+        existingParty.setMembers(party.getMembers());
+        return partyService.updateParty(existingParty);
     }
 
     @PatchMapping(value = "/{id}/swapHero")

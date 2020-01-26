@@ -52,6 +52,7 @@ public class CampApplication implements ApplicationRunner {
 
         // Clear DB and initialize it with fresh, random heroes:
         initializeHeroes();
+        initializePlayerParty();
     }
 
     public void initializeHeroes(){
@@ -74,6 +75,10 @@ public class CampApplication implements ApplicationRunner {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    public void initializePlayerParty() {
+        partyService.createPlayerParty();
     }
 
 }

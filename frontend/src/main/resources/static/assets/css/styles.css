@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+}
+
+footer {
+    width: 100%;
+    background-color: #8e44ad;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+.disabled {
+    color: gray;
+}
