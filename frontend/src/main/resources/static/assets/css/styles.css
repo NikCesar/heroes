@@ -14,6 +14,7 @@ a {
     cursor: pointer;
 }
 
-.disabled {
-    color: gray;
+.blocked {
+    color: gray !important;
+    cursor: not-allowed;
 }

@@ -22,7 +22,7 @@ function updateLists() {
     $('#heroes').empty();
     heroes.forEach(x => {
         if (playerParty.members.includes(x)) {
-            $('#heroes').append('<li><a class="disabled">' + x.name + '</a></li>');
+            $('#heroes').append('<li><a class="blocked">' + x.name + '</a></li>');
         } else {
             $('#heroes').append('<li><a onclick="addToParty(\'' + x.id + '\')">' + x.name + '</a></li>');
         }
