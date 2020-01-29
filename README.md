@@ -10,7 +10,7 @@ Die Battle-Performance der einzelnen Heroes wird bewertet und im Anschluss an da
 #### Vornamen-Vielfalt
 Im Camp-Service unter util/NameList findet sich eine Liste mit über 1'000 Namen, welche als Quelle für die zufällige Generierung von Hero-Namen genutzt wird.
 
-#### Additional Hero Stats
+#### Additional Hero Attributes
 Um die Helden etwas interessanter zu machen, haben wir uns entschieden wietere Helden Attribute hinzuzufügen.
 - Initiative (Bestimmt die Reihenfolge in welcher die Helden angreifen, der Held mit dem höchsten Initiative-Wert greift zuerst an)
 - Dodge Chance (Bestimmt die Chance mit welcher ein Held einer Attacke ausweichen kann, und somit keinen Schaden erhält)
