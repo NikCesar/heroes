@@ -10,6 +10,49 @@ Die Battle-Performance der einzelnen Heroes wird bewertet und im Anschluss an da
 #### Vornamen-Vielfalt
 Im Camp-Service unter util/NameList findet sich eine Liste mit über 1'000 Namen, welche als Quelle für die zufällige Generierung von Hero-Namen genutzt wird.
 
+#### Additional Hero Stats
+Um die Helden etwas interessanter zu machen, haben wir uns entschieden wietere Helden Attribute hinzuzufügen.
+- Initiative (Bestimmt die Reihenfolge in welcher die Helden angreifen, der Held mit dem höchsten Initiative-Wert greift zuerst an)
+- Dodge Chance (Bestimmt die Chance mit welcher ein Held einer Attacke ausweichen kann, und somit keinen Schaden erhält)
+- Crit Chance (Bestimmt die Chance mit der, der Angriff eines Helden kritischt trifft und somit den Schaden verdoppelt)
+
+#### Hero Type
+Zusätzlich zu oben erwähntent Attributen, hat jeder Held eine "Klasse" erhalten. Im Spiel gibt es vier verschiedene Klassen
+- Warrior
+- Rogue
+- Mage
+- Ranger
+
+Jede Klasse hat eine andere gewichtung bei der Punktverteilung der Generierung.
+
+| Stats | Warrior   | Rogue     | Mage        | Ranger    |
+| ----- | --------- | --------- | ----------- | --------- |
+| ATK   | 15 - 20   | 25 - 35   | 10 - 20     | 35 - 40   |
+| DEF   | 13 - 18   | 0 - 5     | 5 - 10      | 3 - 8     |
+| HP    | 150 - 200 | 50 - 80   | 80 - 120    | 30 - 50   |
+| INIT  | 1 - 5     | 7 - 12    | 1 - 20      | 5 - 15    |
+| CRIT  | 0.1 - 0.2 | 0.3 - 0.4 | 0.3 - 0.7   | 0 - 0.2   |
+| DODGE | 0.1 - 0.2 | 0.5 - 0.7 | 0.1 - 0.3   | 0.3 - 0.5 |
+
+#### Combat logic rework
+Die gesamte Kampflogik wurde umgeschrieben. Man kämpft immer mit einer Party bestehend aus 4 Helden. Die Angriffsreihenfolge wird durch den Initiative-Wert der einzelnen Helden bestimmt. Es ist also möglich, dass mehrere Helden aus der selben Party nacheinander angreifen können, bevor ein Held der gegnerischen Party die Gelegenheit dazu erhält. Der Kampf findet über mehrere Runden statt. Eine Runde gilt als abgeschlossen wenn alle Kampffähigen Helden einmal angegriffen haben.
+Wenn ein Held angreift, greift dieser den Held der gegnerischen Party an der vordersten Position an (Index 0 in der Liste), dies trifft nur nicht zu wenn der angreifende Held vom Typ 'Rogue' ist. Helden vom Typ 'Rogue' greifen immer das hinterste Mitglied der gegnerischen Party an. Während der angriffsphase wird dann bestimmt ob der angegriffene Held dem angriff ausweicht (dodge chance), oder der angreifende Held den Gegner kritisch trifft (crit chance). Falls die HP eines Helden unter 0 fallen, gitl dieser als Besiegt und nimmt somit nicht mehr am kampf teil.
+
+#### Equipment
+Helden können auch mit Ausrüstung ausgestattet werden. Momentan gibt es 3 verschiedene Arten von Ausrüstung, welche unterschiedliche Attribute der Helden erhöhen. Pro Attribut-Typ kann nur ein Gegenstand ausgerüstet werden. Folgende Ausrüstungen gibt es:
+- Armor (Erhöht DEF und DODGE)
+- Weapon (Erhöht ATK und CRIT)
+- Mount (Erhöht HP und INIT)
+
+Zusätzlich haben Ausrüstungsgegenstände einen Seltenheitsgrad, desto seltener der Gegenstand, desto besser die Attribut-Boni. Folgende Seltenheitsgrade gibt es:
+- Common
+- Rare
+- Epic
+- Legendary
+
+#### GUI
+Ein GUI wurde für die einfache Bedienung der Applikation programmiert. Das GUI ist im browser unter http://localhost:8080/ aufrufbar. Es ist möglich Helden aus der Heldenliste in die Party zu bewegen. Ungewünschte Helden können aus der Party entfernt werden. Helden können zusätzlich mit Ausrüstung ausgestattet werden, welche die Attribute erhöhen. Die Party kann persistiert werden. Schlussendlich kann die erstellte Party gegen andere Parties zum Kampf aufgestellt werden.
+
 ## Problems and Solutions
 
 #### Hateoas
