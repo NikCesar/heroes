@@ -9,7 +9,13 @@
 - Equipment-Service
 - Promoter-Service
 
-2.) In den Browser wechseln und http://localhost:8080/ aufrufen.
+2.) Sicherheitshalber ca. 3 Minuten warten (Teilweise dauert es etwas länger bis sich alle Services korrekt registriert haben.
+3a.) In den Browser wechseln und http://localhost:8080/ aufrufen.
+3b.) Falls KEINE Liste mit Heroes erscheint, bitte ein paar Minuten warten und anschliessend im Browser "Refresh" drücken. Dadurch erhält die Applikation noch etwas Zeit, um sämtliche Services korrekt zu registrieren.
+4.) Auf der rechten Bildschirmhälfte die gewünschten Heroes mittels Klick auf den '+'-Button zur eigenen Party hinzufügen
+5.) Unterhalb jedes hinzugefügten Hero 3 Ausrüstungen selektieren (Ausrüstung wirkt sich positiv auf die Hero-Attribute aus. Für Details siehe Kapitel "Additional Features").
+6.) Bei Bedarf das zusammengstellte Team mittels "Save Party" speichern (Party wird in die Datenbank geschrieben)
+7.) In der Top-Navbar auf "Arena" klicken und das Battle starten.
 
 
 ## Additional Features
@@ -61,7 +67,8 @@ Zusätzlich verfügen die oben genannten Ausrüstungen über einen Seltenheitsgr
 - Legendary
 
 #### GUI
-Für die komfortablere Bedienung der Applikation haben wir ein simples aber zweckmässiges GUI kreiert. Es erlaubt die Zusammenstellung einer eigenen Hero-Party, welche anschliessend gegen eine Computer-generierte Hero-Party kämpfen wird. Die gewünschten Helden kann man bequem per Drag and Drop einer Party hinzuzufügen. Ungewünschte Helden können wieder aus der Party entfernt werden. Ausserdem können die Helden mit Ausrüstung ausgestattet werden. Es ist möglich die selbst kreierte Party zu speichern.
+Für die komfortablere Bedienung der Applikation haben wir ein simples aber zweckmässiges GUI kreiert. Es erlaubt die Zusammenstellung einer eigenen Hero-Party, welche anschliessend gegen eine Computer-generierte Hero-Party kämpfen wird. Die gewünschten Helden kann man bequem mittels Mausklick einer Party hinzuzufügen und bei Bedarf wieder entfernen. Ausserdem können die Helden mit Ausrüstung ausgestattet werden. Es ist möglich die selbst kreierte Party zu speichern.
+
 
 ## Problems and Solutions
 
@@ -81,6 +88,7 @@ Zu einem späteren Zeitpunkt stellte sich heraus, dass der Promoter-Service offe
 Die Konfiguration des Equipment Service bereitete uns einige Schwierigkeiten. Wir verwendeten zunächst die Dependency 'spring-cloud-openfeign-core', mussten jedoch feststellen, dass letztere nicht dieselben Funktionalitäten bietet wie 'spring-cloud-starter-openfeign'. Zu dieser Einsicht zu gelangen war nicht ganz einfach, da beim Ausführen des Service mit der "falschen" Dependency keine aussagekräftige Exception geworfen wurde. Der fehlgeschlagene Aufruf des Camp-Service mittels Feign triggerte jeweils die von uns definierte Fallback-Methode, was für die Lokalisierung der Fehlerursache wenig hilfreich war. Uns war zunächst nicht klar, ob der Aufruf selber fehlerhaft war oder aber die Rückmeldung des Camp-Service.
 
 Die Problemlösung brachte schliesslich ein Vergleich unseres Service mit einem Service der Musterlösung. Zusätzlich zum Austausch der Dependency war das Anbringen der @EnableFeignClient-Annotation erforderlich. Ansonsten hätte unser Service die entsprechende Funktionalität nicht nutzen können.
+
 
 ## Erkenntnisse
 Die Probleme bei der Konfiguration des Equipment-Service sind fast schon symptomatisch für die Nachteile des Einsatzes von umfangreichen Frameworks. Der Entwickler konfiguriert nach bestem Wissen und Gewissen und verlässt sich darauf, dass es die Framework-Magic, welche "under the hood" stattfindet, schon irgendwie richten wird. Wenn dann eine Exception auftritt, ist diese oftmals derart generisch und komplex, dass man sie kaum nachvollziehen kann. Als Anwender eines Framework bewegt man sich oftmals auf einer derart hohen Abstraktionsebene, dass die Fehlersuche immer schwieriger wird.
