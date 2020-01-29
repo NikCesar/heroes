@@ -19,3 +19,5 @@ Man verlässt sich auf das Framework und implementiert es nach bestem Wissen und
 hofft man dass die Frameworkentwickler zu jedem Fehler eine brauchbare Exception zurücksenden. 
 Allerdings ist es oft so, dass man eine generische Exception erhält und selber forschen muss wo der Fehler liegt, 
 was je nach Komplexität der abstrahierten Aufgabe sehr schwierig sein kann.
+Unserer Meinung nach lohnt es sich aber dennoch solche Frameworks zu nutzen. Der Mehrwert aus deren Verwendung 
+überwiegt die Probleme, auf welche man von Zeit zu Zeit stösst.
