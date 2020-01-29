@@ -17,11 +17,9 @@
 
 4.) Auf der rechten Bildschirmhälfte die gewünschten Heroes mittels Klick auf den '+'-Button zur eigenen Party hinzufügen
 
-5.) Unterhalb jedes hinzugefügten Hero 3 Ausrüstungen selektieren (Ausrüstung wirkt sich positiv auf die Hero-Attribute aus. Für Details siehe Kapitel "Additional Features")
+5.) Bei Bedarf das zusammengstellte Team mittels "Save Party" für eine spätere Verwendung speichern (Party wird in der Datenbank abgelegt)
 
-6.) Bei Bedarf das zusammengstellte Team mittels "Save Party" für eine spätere Verwendung speichern (Party wird in der Datenbank abgelegt)
-
-7.) In der Top-Navbar auf "Arena" klicken und das Battle starten
+6.) ...
 
 
 ## Additional Features
@@ -73,8 +71,7 @@ Zusätzlich verfügen die oben genannten Ausrüstungen über einen Seltenheitsgr
 - Legendary
 
 #### GUI
-Für die komfortablere Bedienung der Applikation haben wir ein simples aber zweckmässiges GUI kreiert. Es erlaubt die Zusammenstellung einer eigenen Hero-Party, welche anschliessend gegen eine Computer-generierte Hero-Party kämpfen wird. Die gewünschten Helden kann man bequem mittels Mausklick einer Party hinzuzufügen und bei Bedarf wieder entfernen. Ausserdem können die Helden mit Ausrüstung ausgestattet werden. Es ist möglich die selbst kreierte Party zu speichern.
-
+Für die komfortablere Bedienung der Applikation haben wir ein simples aber zweckmässiges GUI kreiert. Es erlaubt die Zusammenstellung einer eigenen Hero-Party, welche anschliessend gegen eine Computer-generierte Hero-Party kämpfen wird. Die gewünschten Helden kann man bequem mittels Mausklick einer Party hinzuzufügen und bei Bedarf wieder entfernen. Ausserdem ist es möglich die selbst kreierte Party in der Datenbank zu persistieren. Beim nächsten Aufstarten wird diese dann automatisch angezeigt. Das Ausstatten der Helden mit Ausrüstung konnte aus Zeitgründen leider nicht mehr ins GUI integriert werden.
 
 ## Problems and Solutions
 
