@@ -127,3 +127,18 @@ const saveParty = () => {
         },
     });
 };
+
+const fight = () => {
+    $.ajax({
+        url: 'http://localhost:8080/promoter/promotePlayerFight',
+        data: {},
+        error: () => alert('Service unavailable'),
+        success: (data) => {
+            $('#results').append(data.toString());
+        },
+        type: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    });
+}
