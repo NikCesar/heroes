@@ -47,7 +47,7 @@ public class DefaultPromoterService implements PromoterService {
     @Override
     public BattleStats promotePlayerFight() {
 
-        Party partyHome = campClient.findById(1l).getContent();
+        Party partyHome = campClient.findPartyById(1l).getContent();
         Party partyAway = campClient.createParty("Enemy Party").getContent();
 
         addDistinctNameExtensions(partyHome, partyAway);

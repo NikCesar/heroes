@@ -18,7 +18,7 @@ public class FallbackCampClient implements CampClient {
     }
 
     @Override
-    public EntityModel<Party> findById(@PathVariable Long id) {
+    public EntityModel<Party> findPartyById(@PathVariable Long id) {
         throw new ResponseStatusException(HttpStatus.REQUEST_TIMEOUT, "The camp is currently not available");
     }
 }

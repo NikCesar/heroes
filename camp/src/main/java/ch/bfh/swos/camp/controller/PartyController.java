@@ -30,7 +30,7 @@ public class PartyController {
     }
 
     @GetMapping("/{id}")
-    public Party findById(@PathVariable Long id) {
+    public Party findPartyById(@PathVariable Long id) {
         return partyService.findPartyById(id);
     }
 

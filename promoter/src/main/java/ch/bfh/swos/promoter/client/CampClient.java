@@ -13,9 +13,9 @@ import org.springframework.web.server.ResponseStatusException;
 @FeignClient(value = "camp-service", fallback = FallbackCampClient.class)
 public interface CampClient {
 
-    @GetMapping(value = "/{id}")
-    EntityModel<Party> findById(@PathVariable Long id);
+    @GetMapping(value = "parties/{id}")
+    EntityModel<Party> findPartyById(@PathVariable Long id);
 
-    @GetMapping(value = "/createParty")
+    @GetMapping(value = "parties/createParty")
     EntityModel<Party> createParty(@RequestParam(value = "name") String partyName) throws ResponseStatusException;
 }
