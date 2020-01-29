@@ -58,7 +58,7 @@ Der Hero-Type hat einen Einfluss auf die Ausprägungen der Hero-Attribute. Wie d
 Die gesamte Kampflogik wurde umgeschrieben. Man kämpft immer mit einer Party bestehend aus 4 Helden. Die Angriffsreihenfolge wird durch den Initiative-Wert der einzelnen Helden bestimmt. Es ist also möglich, dass mehrere Helden aus derselben Party nacheinander angreifen können, bevor ein Held der gegnerischen Party die Gelegenheit dazu erhält. Der Kampf findet über mehrere Runden statt. Eine Runde gilt als abgeschlossen wenn alle kampffähigen Helden einmal angegriffen haben.
 Der Angriff eines Helden richtet sich grundsätzlich auf jenen Helden der gegnerischen Party, der an vorderster Position steht (Index 0 in der Liste). Ein abweichendes Verhalten zeigen ausschliesslich Helden vom Typ 'Rogue'. Letztere greifen immer das hinterste Mitglied der gegnerischen Party an. Während der Angriffsphase bestimmt die Engine nach dem Zufallsprinzip, ob der angegriffene Held dem Angriff ausweicht (dodge chance), oder der angreifende Held den Gegner kritisch trifft (crit chance). Falls die HP eines Helden unter 0 fallen, gilt dieser als besiegt und scheidet aus dem Kampf aus.
 
-#### Equipment
+#### Equipment (Eigener Microservice)
 Helden können mit drei verschiedenen Arten von Ausrüstung ausgestattet werden. Letztere haben einen positiven Einfluss auf spezifische Helden-Attribute. Pro Attribut-Typ kann eine Ausrüstung nur einmal angewendet werden, z.B. 1x Armor, 1x Weapon, 1x Mount und NICHT 2x Armor. Nachfolgend die Ausrüstungs-Arten und ihre Auswirkung auf die Helden-Attribute:
 - Armor: Erhöht DEF und DODGE
 - Weapon: Erhöht ATK und CRIT
