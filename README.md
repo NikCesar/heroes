@@ -11,19 +11,19 @@ Die Battle-Performance der einzelnen Heroes wird bewertet und im Anschluss an da
 Im Camp-Service unter util/NameList findet sich eine Liste mit über 1'000 Namen, welche als Quelle für die zufällige Generierung von Hero-Namen genutzt wird.
 
 #### Additional Hero Attributes
-Um die Helden etwas interessanter zu machen, haben wir uns entschieden wietere Helden Attribute hinzuzufügen.
-- Initiative (Bestimmt die Reihenfolge in welcher die Helden angreifen, der Held mit dem höchsten Initiative-Wert greift zuerst an)
-- Dodge Chance (Bestimmt die Chance mit welcher ein Held einer Attacke ausweichen kann, und somit keinen Schaden erhält)
-- Crit Chance (Bestimmt die Chance mit der, der Angriff eines Helden kritischt trifft und somit den Schaden verdoppelt)
+Um die Helden etwas interessanter zu gestalten, haben wir uns entschieden die Helden mit weiteren Attributen auszustatten:
+- Initiative: Bestimmt die Reihenfolge in welcher die Helden angreifen; der Held mit dem höchsten Initiative-Wert greift zuerst an.
+- Dodge Chance: Bestimmt die Chance mit welcher ein Held einer Attacke ausweichen kann und somit keinen Schaden erhält.
+- Crit Chance: Bestimmt die Chance mit welcher der Angriff eines Helden kritisch trifft und somit den Schaden verdoppelt.
 
 #### Hero Type
-Zusätzlich zu oben erwähntent Attributen, hat jeder Held eine "Klasse" erhalten. Im Spiel gibt es vier verschiedene Klassen
+Zusätzlich zu oben erwähnten Attributen, hat jeder Held einen "Type" erhalten. Im Spiel gibt es vier verschiedene Types
 - Warrior
 - Rogue
 - Mage
 - Ranger
 
-Jede Klasse hat eine andere gewichtung bei der Punktverteilung der Generierung.
+Der Hero-Type hat einen Einfluss auf die Ausprägungen der Hero-Attribute. Wie die nachfolgende Tabelle zeigt, ist der Range in dem der tatsächliche Attribut-Wert eines Hero zu liegen kommt, abhängig von der Art des Attributs sowie vom Type des Hero.
 
 | Stats | Warrior   | Rogue     | Mage        | Ranger    |
 | ----- | --------- | --------- | ----------- | --------- |
@@ -39,7 +39,7 @@ Die gesamte Kampflogik wurde umgeschrieben. Man kämpft immer mit einer Party be
 Wenn ein Held angreift, greift dieser den Held der gegnerischen Party an der vordersten Position an (Index 0 in der Liste), dies trifft nur nicht zu wenn der angreifende Held vom Typ 'Rogue' ist. Helden vom Typ 'Rogue' greifen immer das hinterste Mitglied der gegnerischen Party an. Während der angriffsphase wird dann bestimmt ob der angegriffene Held dem angriff ausweicht (dodge chance), oder der angreifende Held den Gegner kritisch trifft (crit chance). Falls die HP eines Helden unter 0 fallen, gitl dieser als Besiegt und nimmt somit nicht mehr am kampf teil.
 
 #### Equipment
-Helden können auch mit Ausrüstung ausgestattet werden. Momentan gibt es 3 verschiedene Arten von Ausrüstung, welche unterschiedliche Attribute der Helden erhöhen. Pro Attribut-Typ kann nur eine Ausrüstung ausgerüstet werden, bsp. (1x Armor, 1x Weapon, 1x Mount und NICHT 2x Armor). Folgende Ausrüstungen gibt es:
+Helden können auch mit Ausrüstung ausgestattet werden. Momentan gibt es 3 verschiedene Arten von Ausrüstung, welche unterschiedliche Attribute der Helden erhöhen. Pro Attribut-Typ kann eine Ausrüstung nur einmal angewendet werden, z.B. 1x Armor, 1x Weapon, 1x Mount und NICHT 2x Armor. Folgende Ausrüstungen gibt es:
 - Armor (Erhöht DEF und DODGE)
 - Weapon (Erhöht ATK und CRIT)
 - Mount (Erhöht HP und INIT)
