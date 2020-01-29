@@ -1,6 +1,16 @@
 # heroes - mvnFanatics
 
 ## Installation Guide
+1.) Alle 6 Services starten:
+- Registry-Service
+- Frontend-Service
+- Arena-Service
+- Camp-Service
+- Equipment-Service
+- Promoter-Service
+
+2.) In den Browser wechseln und http://localhost:8080/ aufrufen.
+
 
 ## Additional Features
 
