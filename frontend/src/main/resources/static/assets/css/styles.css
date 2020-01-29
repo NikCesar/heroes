@@ -14,7 +14,29 @@ a {
     cursor: pointer;
 }
 
-.blocked {
-    color: gray !important;
-    cursor: not-allowed;
+i {
+    font-size: 12px;
+}
+
+.hero_class {
+    font-size: 12px;
+}
+
+.hero_toggle {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #fff !important;
+    margin-left: 10px;
+}
+
+.hero_toggle_add {
+    background-color: #007bff;
+}
+
+.hero_toggle_remove {
+    background-color: #c0392b;
+}
+
+.gray {
+    color: gray;
 }
