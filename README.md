@@ -10,11 +10,17 @@
 - Promoter-Service
 
 2.) Sicherheitshalber ca. 3 Minuten warten (Teilweise dauert es etwas länger bis sich alle Services korrekt registriert haben.
+
 3a.) In den Browser wechseln und http://localhost:8080/ aufrufen.
+
 3b.) Falls KEINE Liste mit Heroes erscheint, bitte ein paar Minuten warten und anschliessend im Browser "Refresh" drücken. Dadurch erhält die Applikation noch etwas Zeit, um sämtliche Services korrekt zu registrieren.
+
 4.) Auf der rechten Bildschirmhälfte die gewünschten Heroes mittels Klick auf den '+'-Button zur eigenen Party hinzufügen
+
 5.) Unterhalb jedes hinzugefügten Hero 3 Ausrüstungen selektieren (Ausrüstung wirkt sich positiv auf die Hero-Attribute aus. Für Details siehe Kapitel "Additional Features").
+
 6.) Bei Bedarf das zusammengstellte Team mittels "Save Party" speichern (Party wird in die Datenbank geschrieben)
+
 7.) In der Top-Navbar auf "Arena" klicken und das Battle starten.
 
 
