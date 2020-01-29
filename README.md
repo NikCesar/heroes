@@ -39,7 +39,7 @@ Die gesamte Kampflogik wurde umgeschrieben. Man kämpft immer mit einer Party be
 Wenn ein Held angreift, greift dieser den Held der gegnerischen Party an der vordersten Position an (Index 0 in der Liste), dies trifft nur nicht zu wenn der angreifende Held vom Typ 'Rogue' ist. Helden vom Typ 'Rogue' greifen immer das hinterste Mitglied der gegnerischen Party an. Während der angriffsphase wird dann bestimmt ob der angegriffene Held dem angriff ausweicht (dodge chance), oder der angreifende Held den Gegner kritisch trifft (crit chance). Falls die HP eines Helden unter 0 fallen, gitl dieser als Besiegt und nimmt somit nicht mehr am kampf teil.
 
 #### Equipment
-Helden können auch mit Ausrüstung ausgestattet werden. Momentan gibt es 3 verschiedene Arten von Ausrüstung, welche unterschiedliche Attribute der Helden erhöhen. Pro Attribut-Typ kann nur ein Gegenstand ausgerüstet werden. Folgende Ausrüstungen gibt es:
+Helden können auch mit Ausrüstung ausgestattet werden. Momentan gibt es 3 verschiedene Arten von Ausrüstung, welche unterschiedliche Attribute der Helden erhöhen. Pro Attribut-Typ kann nur eine Ausrüstung ausgerüstet werden, bsp. (1x Armor, 1x Weapon, 1x Mount und NICHT 2x Armor). Folgende Ausrüstungen gibt es:
 - Armor (Erhöht DEF und DODGE)
 - Weapon (Erhöht ATK und CRIT)
 - Mount (Erhöht HP und INIT)
