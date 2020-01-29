@@ -17,7 +17,7 @@
 
 4.) Auf der rechten Bildschirmhälfte die gewünschten Heroes mittels Klick auf den '+'-Button zur eigenen Party hinzufügen
 
-5.) Bei Bedarf das zusammengstellte Team mittels "Save Party" für eine spätere Verwendung speichern (Party wird in der Datenbank abgelegt)
+5.) Bei Bedarf die zusammengstellte Party mittels "Save Party" für eine spätere Verwendung speichern (Party wird beim nächsten Aufstarten automatisch angezeigt)
 
 6.) ...
 
