@@ -53,7 +53,27 @@ public class PromoterController {
         return sb.toString();
     }
 
+    @GetMapping(value = "/promotePlayerFight")
+    public String promoteFight() {
 
+        BattleStats battleStats = promoterService.promotePlayerFight();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("<br>");
+        sb.append("The Promoter is proud to proclaim the following result of today's battle: ");
+        sb.append(battleStats.getWinnerParty().getName());
+        sb.append(" against ");
+        sb.append(battleStats.getDefeatedParty().getName());
+        sb.append(" ");
+        sb.append(battleStats.getNumberOfWinsOfWinner());
+        sb.append(" : ");
+        sb.append(battleStats.getNumberOfWinsOfLoser());
+        sb.append("<br>");
+        sb.append(getStatsForParty(battleStats.getWinnerParty()));
+        sb.append("<br>");
+        sb.append(getStatsForParty(battleStats.getDefeatedParty()));
+        return sb.toString();
+    }
 
     private String getStatsForParty(Party party){
         String outputStr = "<br><b>" + party.getName()+"</b><br>";

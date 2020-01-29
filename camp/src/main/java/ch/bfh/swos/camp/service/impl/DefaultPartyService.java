@@ -54,4 +54,20 @@ public class DefaultPartyService implements PartyService {
     public Party findPartyById(Long id) {
         return partyRepository.findPartyById(id);
     }
+
+    public List<Party> findAll() {
+        return partyRepository.findAll();
+    }
+
+    @Override
+    public Party createPlayerParty() {
+        Party party = new Party();
+        party.setName("Player Party");
+        return partyRepository.save(party);
+    }
+
+    @Override
+    public Party updateParty(Party party) {
+        return partyRepository.save(party);
+    }
 }

@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+}
+
+footer {
+    width: 100%;
+    background-color: #8e44ad;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+i {
+    font-size: 12px;
+}
+
+.hero_class {
+    font-size: 12px;
+}
+
+.hero_toggle {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #fff !important;
+    margin-left: 10px;
+}
+
+.hero_toggle_add {
+    background-color: #007bff;
+}
+
+.hero_toggle_remove {
+    background-color: #c0392b;
+}
+
+.gray {
+    color: gray;
+}
+
+.selected {
+    color: blue;
+}
