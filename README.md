@@ -19,7 +19,7 @@
 
 5.) Bei Bedarf die zusammengstellte Party mittels "Save Party" für eine spätere Verwendung speichern (Party wird beim nächsten Aufstarten automatisch angezeigt)
 
-6.) In der Top-Nav auf "Arena" klicken, dort "Fight in the Arena" Knopf drücken, und schon werden die Resultate ausgegeben!
+6.) Auf den Arena navigationspunkt wechseln -> Auf "Fight in the Arena" Knopf drücken, und resultate sehen!
 
 
 ## Additional Features
@@ -71,7 +71,7 @@ Zusätzlich verfügen die oben genannten Ausrüstungen über einen Seltenheitsgr
 - Legendary
 
 #### GUI
-Für die komfortablere Bedienung der Applikation haben wir ein simples aber zweckmässiges GUI kreiert. Es erlaubt die Zusammenstellung einer eigenen Hero-Party, welche anschliessend gegen eine Computer-generierte Hero-Party kämpfen wird. Die gewünschten Helden kann man bequem mittels Mausklick einer Party hinzuzufügen und bei Bedarf wieder entfernen. Ausserdem ist es möglich die selbst kreierte Party in der Datenbank zu persistieren. Beim nächsten Aufstarten wird diese dann automatisch angezeigt. Das Ausstatten der Helden mit Ausrüstung konnte aus Zeitgründen leider nicht mehr ins GUI integriert werden.
+Für die komfortablere Bedienung der Applikation haben wir ein simples aber zweckmässiges GUI kreiert. Es erlaubt die Zusammenstellung einer eigenen Hero-Party, welche anschliessend gegen eine Computer-generierte Hero-Party kämpfen wird. Die gewünschten Helden kann man bequem mittels Mausklick einer Party hinzuzufügen und bei Bedarf wieder entfernen. Ausserdem ist es möglich die selbst kreierte Party in der Datenbank zu persistieren. Beim nächsten Aufstarten wird diese dann automatisch angezeigt. Das Ausstatten der Helden mit Ausrüstung konnte aus Zeitgründen leider nicht mehr ins GUI integriert werden. Auf der nächsten Seite, kann dann mit der erstellten Party gegen zufällige Gegner-Parties gekämpft werden.
 
 ## Problems and Solutions
 
