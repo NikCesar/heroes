@@ -19,7 +19,7 @@
 
 5.) Unterhalb jedes hinzugefügten Hero 3 Ausrüstungen selektieren (Ausrüstung wirkt sich positiv auf die Hero-Attribute aus. Für Details siehe Kapitel "Additional Features")
 
-6.) Bei Bedarf das zusammengstellte Team mittels "Save Party" speichern (Party wird in die Datenbank geschrieben)
+6.) Bei Bedarf das zusammengstellte Team mittels "Save Party" für eine spätere Verwendung speichern (Party wird in der Datenbank abgelegt)
 
 7.) In der Top-Navbar auf "Arena" klicken und das Battle starten
 
