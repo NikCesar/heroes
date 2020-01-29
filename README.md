@@ -17,7 +17,7 @@ Um die Helden etwas interessanter zu gestalten, haben wir uns entschieden die He
 - Crit Chance: Bestimmt die Chance mit welcher der Angriff eines Helden kritisch trifft und somit den Schaden verdoppelt.
 
 #### Hero Type
-Zusätzlich zu oben erwähnten Attributen, hat jeder Held einen "Type" erhalten. Im Spiel gibt es vier verschiedene Types
+Wir unterscheiden 4 verschiedene Typen von Heroes:
 - Warrior
 - Rogue
 - Mage
@@ -34,24 +34,24 @@ Der Hero-Type hat einen Einfluss auf die Ausprägungen der Hero-Attribute. Wie d
 | CRIT  | 0.1 - 0.2 | 0.3 - 0.4 | 0.3 - 0.7   | 0 - 0.2   |
 | DODGE | 0.1 - 0.2 | 0.5 - 0.7 | 0.1 - 0.3   | 0.3 - 0.5 |
 
-#### Combat logic rework
-Die gesamte Kampflogik wurde umgeschrieben. Man kämpft immer mit einer Party bestehend aus 4 Helden. Die Angriffsreihenfolge wird durch den Initiative-Wert der einzelnen Helden bestimmt. Es ist also möglich, dass mehrere Helden aus der selben Party nacheinander angreifen können, bevor ein Held der gegnerischen Party die Gelegenheit dazu erhält. Der Kampf findet über mehrere Runden statt. Eine Runde gilt als abgeschlossen wenn alle Kampffähigen Helden einmal angegriffen haben.
-Wenn ein Held angreift, greift dieser den Held der gegnerischen Party an der vordersten Position an (Index 0 in der Liste), dies trifft nur nicht zu wenn der angreifende Held vom Typ 'Rogue' ist. Helden vom Typ 'Rogue' greifen immer das hinterste Mitglied der gegnerischen Party an. Während der angriffsphase wird dann bestimmt ob der angegriffene Held dem angriff ausweicht (dodge chance), oder der angreifende Held den Gegner kritisch trifft (crit chance). Falls die HP eines Helden unter 0 fallen, gitl dieser als Besiegt und nimmt somit nicht mehr am kampf teil.
+#### Revision of the combat logic
+Die gesamte Kampflogik wurde umgeschrieben. Man kämpft immer mit einer Party bestehend aus 4 Helden. Die Angriffsreihenfolge wird durch den Initiative-Wert der einzelnen Helden bestimmt. Es ist also möglich, dass mehrere Helden aus derselben Party nacheinander angreifen können, bevor ein Held der gegnerischen Party die Gelegenheit dazu erhält. Der Kampf findet über mehrere Runden statt. Eine Runde gilt als abgeschlossen wenn alle kampffähigen Helden einmal angegriffen haben.
+Der Angriff eines Helden richtet sich grundsätzlich auf jenen Helden der gegnerischen Party, der an vorderster Position steht (Index 0 in der Liste). Ein abweichendes Verhalten zeigen ausschliesslich Helden vom Typ 'Rogue'. Letztere greifen immer das hinterste Mitglied der gegnerischen Party an. Während der Angriffsphase bestimmt die Engine nach dem Zufallsprinzip, ob der angegriffene Held dem Angriff ausweicht (dodge chance), oder der angreifende Held den Gegner kritisch trifft (crit chance). Falls die HP eines Helden unter 0 fallen, gilt dieser als besiegt und scheidet aus dem Kampf aus.
 
 #### Equipment
-Helden können auch mit Ausrüstung ausgestattet werden. Momentan gibt es 3 verschiedene Arten von Ausrüstung, welche unterschiedliche Attribute der Helden erhöhen. Pro Attribut-Typ kann eine Ausrüstung nur einmal angewendet werden, z.B. 1x Armor, 1x Weapon, 1x Mount und NICHT 2x Armor. Folgende Ausrüstungen gibt es:
-- Armor (Erhöht DEF und DODGE)
-- Weapon (Erhöht ATK und CRIT)
-- Mount (Erhöht HP und INIT)
+Helden können mit drei verschiedenen Arten von Ausrüstung ausgestattet werden. Letztere haben einen positiven Einfluss auf spezifische Helden-Attribute. Pro Attribut-Typ kann eine Ausrüstung nur einmal angewendet werden, z.B. 1x Armor, 1x Weapon, 1x Mount und NICHT 2x Armor. Nachfolgend die Ausrüstungs-Arten und ihre Auswirkung auf die Helden-Attribute:
+- Armor: Erhöht DEF und DODGE
+- Weapon: Erhöht ATK und CRIT
+- Mount: Erhöht HP und INIT
 
-Zusätzlich haben Ausrüstungsgegenstände einen Seltenheitsgrad, desto seltener der Gegenstand, desto besser die Attribut-Boni. Folgende Seltenheitsgrade gibt es:
+Zusätzlich verfügen die oben genannten Ausrüstungen über einen Seltenheitsgrad. Je seltener die Ausrüstungs-Art, desto höher die Attribut-Boni. Folgende Seltenheitsgrade gibt es:
 - Common
 - Rare
 - Epic
 - Legendary
 
 #### GUI
-Ein GUI wurde für die einfache Bedienung der Applikation programmiert. Das GUI ist im browser unter http://localhost:8080/ aufrufbar. Es ist möglich Helden aus der Heldenliste in die Party zu bewegen. Ungewünschte Helden können aus der Party entfernt werden. Helden können zusätzlich mit Ausrüstung ausgestattet werden, welche die Attribute erhöhen. Die Party kann persistiert werden. Schlussendlich kann die erstellte Party gegen andere Parties zum Kampf aufgestellt werden.
+Für die komfortablere Bedienung der Applikation haben wir ein simples aber zweckmässiges GUI kreiert. Es erlaubt die Zusammenstellung einer eigenen Hero-Party, welche anschliessend gegen eine Computer-generierte Hero-Party kämpfen wird. Die gewünschten Helden kann man bequem per Drag and Drop einer Party hinzuzufügen. Ungewünschte Helden können wieder aus der Party entfernt werden. Ausserdem können die Helden mit Ausrüstung ausgestattet werden. Es ist möglich die selbst kreierte Party zu speichern.
 
 ## Problems and Solutions
 
