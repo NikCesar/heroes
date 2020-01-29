@@ -19,7 +19,7 @@
 
 5.) Bei Bedarf die zusammengstellte Party mittels "Save Party" für eine spätere Verwendung speichern (Party wird beim nächsten Aufstarten automatisch angezeigt)
 
-6.) Auf den Arena navigationspunkt wechseln -> Auf "Fight in the Arena" Knopf drücken, und resultate sehen!
+6.) In der Top-Nav auf "Arena" klicken, dort "Fight in the Arena" Knopf drücken, und schon werden die Resultate ausgegeben!
 
 
 ## Additional Features
