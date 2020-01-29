@@ -6,6 +6,14 @@
 
 ### Problems and Solutions
 
+#### Hateoas
+Die Implementierung von Hateoas Funktionalität war von Beginn weg eine Herausforderung. Nach einer mässig erfolgreichen Phase des Ausprobierens, beschlossen wir uns von der Musterlösung auf Github inspirieren zu lassen. Leider mussten wir feststellen, dass der dortige Code im Rahmen unserer eigenen Konfiguration ebenfalls nicht lauffähig war.
+
+Unsere Nachforschungen im Internet haben ergeben, dass das Release von Spring HATEOAS 1.0 einige gewichtige Neuerungen mit sich brachte. U.a. heisst «ResourceSupport» nun «RepresentationModel» und die Namen einiger zentraler Methoden haben ebenfalls geändert. Details dazu gibt es unter: https://docs.spring.io/spring-hateoas/docs/current/reference/html/
+
+
+
+
 #### Konfiguration von Equipment Service
 Die Konfiguration des Equipment Service bereitete uns einige Schwierigkeiten. Wir verwendeten zunächst die Dependency 'spring-cloud-openfeign-core', mussten jedoch feststellen, dass letztere nicht dieselben Funktionalitäten bietet wie 'spring-cloud-starter-openfeign'. Zu dieser Einsicht zu gelangen war nicht ganz einfach, da beim Ausführen des Service mit der "falschen" Dependency keine aussagekräftige Exception geworfen wurde. Der fehlgeschlagene Aufruf des Camp-Service mittels Feign triggerte jeweils die von uns definierte Fallback-Methode, was für die Lokalisierung der Fehlerursache wenig hilfreich war. Uns war zunächst nicht klar, ob der Aufruf selber fehlerhaft war oder aber die Rückmeldung des Camp-Service.
 
