@@ -71,7 +71,7 @@ Zusätzlich verfügen die oben genannten Ausrüstungen über einen Seltenheitsgr
 - Legendary
 
 #### GUI
-Für die komfortablere Bedienung der Applikation haben wir ein simples aber zweckmässiges GUI kreiert. Es erlaubt die Zusammenstellung einer eigenen Hero-Party, welche anschliessend gegen eine Computer-generierte Hero-Party kämpfen wird. Die gewünschten Helden kann man bequem mittels Mausklick einer Party hinzuzufügen und bei Bedarf wieder entfernen. Ausserdem ist es möglich die selbst kreierte Party in der Datenbank zu persistieren. Beim nächsten Aufstarten wird diese dann automatisch angezeigt. Das Ausstatten der Helden mit Ausrüstung konnte aus Zeitgründen leider nicht mehr ins GUI integriert werden. Auf der nächsten Seite, kann dann mit der erstellten Party gegen zufällige Gegner-Parties gekämpft werden.
+Für die komfortablere Bedienung der Applikation haben wir ein simples aber zweckmässiges GUI kreiert. Es erlaubt die Zusammenstellung einer eigenen Hero-Party, welche anschliessend gegen eine Computer-generierte Hero-Party kämpfen wird. Die gewünschten Helden kann man bequem mittels Mausklick einer Party hinzuzufügen und bei Bedarf wieder entfernen. Ausserdem ist es möglich die selbst kreierte Party in der Datenbank zu persistieren. Beim nächsten Aufstarten wird diese dann automatisch angezeigt. Das Ausstatten der Helden mit Ausrüstung konnte aus Zeitgründen leider nicht mehr ins GUI integriert werden. Unter der Rubrik "Arena" (siehe Top-Navbar) kann ein Kampf gegen eine zufällig erstellte Hero-Party gestartet werden.
 
 ## Problems and Solutions
 
