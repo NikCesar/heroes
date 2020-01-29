@@ -44,6 +44,25 @@ public class DefaultPromoterService implements PromoterService {
         return  battleStats;
     }
 
+    @Override
+    public BattleStats promotePlayerFight() {
+
+        Party partyHome = campClient.findById(1l).getContent();
+        Party partyAway = campClient.createParty("Enemy Party").getContent();
+
+        addDistinctNameExtensions(partyHome, partyAway);
+
+        LOG.info("Todays battle is between Party '"+partyHome.getName()+"' and Party '"+partyAway.getName()+"'.");
+
+        List<Party> duelingParties = new ArrayList<>();
+        duelingParties.add(partyHome);
+        duelingParties.add(partyAway);
+        BattleStats battleStats = arenaClient.battle(duelingParties);
+        LOG.info("And the winner is: Party '"+battleStats.getWinnerParty().getName()+"'");
+
+        return  battleStats;
+    }
+
 
     /** Makes sure all participating heroes have a surname that starts with a different letter (in case their first name is identical) **/
     private void addDistinctNameExtensions(Party partyHome, Party partyAway){

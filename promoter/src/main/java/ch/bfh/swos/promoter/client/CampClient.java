@@ -4,6 +4,7 @@ import ch.bfh.swos.promoter.model.Party;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -12,7 +13,9 @@ import org.springframework.web.server.ResponseStatusException;
 @FeignClient(value = "camp-service", fallback = FallbackCampClient.class)
 public interface CampClient {
 
+    @GetMapping(value = "/{id}")
+    EntityModel<Party> findById(@PathVariable Long id);
+
     @GetMapping(value = "/createParty")
     EntityModel<Party> createParty(@RequestParam(value = "name") String partyName) throws ResponseStatusException;
-
 }

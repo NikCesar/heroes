@@ -6,9 +6,6 @@ import ch.bfh.swos.equipment.exception.InvalidHeroException;
 import ch.bfh.swos.equipment.model.Armor;
 import ch.bfh.swos.equipment.model.Hero;
 import ch.bfh.swos.equipment.service.ArmorService;
-import ch.bfh.swos.equipment.service.impl.DefaultArmorService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

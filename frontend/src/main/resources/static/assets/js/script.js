@@ -5,11 +5,14 @@ let armors = [];
 let weapons = [];
 
 $(document).ready(() => {
-    loadHeroes();
-    loadParties();
     loadMounts();
     loadArmors();
     loadWeapons();
+    // Ignore this very ugly workaround, time was running out :D
+    setTimeout(function(){
+        loadHeroes();
+        loadParties();
+    }, 500);
 });
 
 const addToParty = (id) => {
@@ -40,12 +43,12 @@ const updateLists = () => {
     });
 };
 
-const loadHeroes = () => {
+const loadHeroes = async () => {
     $.ajax({
         url: 'http://localhost:8080/camp/heroes',
         data: {},
         error: () => alert('Service unavailable'),
-        success: function(data) {
+        success: function (data) {
             heroes = data;
             if (data.length > 0) {
                 $('#heroes').empty();
@@ -64,13 +67,14 @@ const loadParties = () => {
         url: 'http://localhost:8080/camp/parties/1',
         data: {},
         error: () => alert('Service unavailable'),
-        success: function(data) {
+        success: function (data) {
             party = data;
             if (data.members.length > 0) {
                 $('#parties').empty();
                 data.members.forEach(hero => {
                     $('#parties').append('<li><b>' + hero.name + '</b> <span class="hero_class">[' + hero.heroType + '] </span><i>HP: ' + hero.hp +
-                        ', DEF: ' + hero.def + ', ATK: ' + hero.atk + ', CRIT: ' + hero.critChance + ', DODGE: ' + hero.dodgeChance + ', INI: ' + hero.initiative + '</i><a class="hero_toggle  hero_toggle_remove" onclick="removeFromParty(\'' + hero.id + '\')">-</a></li>');
+                        ', DEF: ' + hero.def + ', ATK: ' + hero.atk + ', CRIT: ' + hero.critChance + ', DODGE: ' + hero.dodgeChance + ', INI: ' + hero.initiative + '</i>' +
+                        '<a class="hero_toggle  hero_toggle_remove" onclick="removeFromParty(\'' + hero.id + '\')">-</a></li>');
                 });
             }
             return data;
@@ -94,7 +98,9 @@ const loadArmors = () => {
         url: 'http://localhost:8080/equipment/armors',
         data: {},
         error: () => alert('Service unavailable'),
-        success: (data) => armors = data,
+        success: function(data) {
+            armors = data;
+        },
         type: 'GET'
     });
 };

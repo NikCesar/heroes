@@ -9,11 +9,8 @@ import ch.bfh.swos.equipment.model.Hero;
 import ch.bfh.swos.equipment.model.Rarity;
 import ch.bfh.swos.equipment.repository.ArmorRepository;
 import ch.bfh.swos.equipment.service.ArmorService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Optional;
 
