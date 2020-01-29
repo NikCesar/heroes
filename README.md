@@ -1,10 +1,10 @@
 # heroes - mvnFanatics
 
-# installation guide
+### Installation Guide
 
-# new parts
+### New Parts
 
-# problems
+### Problems
 Beim Aufsetzen des neuen Equipment Service trafen wir auf einzelne konfigurative Probleme.
 Zuerst hatten wir die Dependency 'spring-cloud-openfeign-core' verwendet. 
 Diese liefert aber nicht dieselben Funktionalitäten wie die korrekte dependency 'spring-cloud-starter-openfeign'.
