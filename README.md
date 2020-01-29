@@ -1,8 +1,8 @@
 # heroes - mvnFanatics
 
-### Installation Guide
+## Installation Guide
 
-### Additional Features
+## Additional Features
 
 #### Fight Stats
 Die Battle-Performance der einzelnen Heroes wird bewertet und im Anschluss an das Battle in Form einer Kampf-Statistik publiziert. Um dies zu ermöglichen, wird zunächst für jeden Helden ein HeroFightStats Object instanziert. Im Verlaufe des Kampfes sorgt der DefaultBattleService dafür, dass die Hero-spezifischen Statistiken laufend aktualisiert werden.
@@ -10,7 +10,7 @@ Die Battle-Performance der einzelnen Heroes wird bewertet und im Anschluss an da
 #### Vornamen-Vielfalt
 Im Camp-Service unter util/NameList findet sich eine Liste mit über 1'000 Namen, welche als Quelle für die zufällige Generierung von Hero-Namen genutzt wird.
 
-### Problems and Solutions
+## Problems and Solutions
 
 #### Hateoas
 Die Implementierung von Hateoas Funktionalität war von Beginn weg eine Herausforderung. Nach einer mässig erfolgreichen Phase des Ausprobierens, beschlossen wir uns von der Musterlösung auf Github inspirieren zu lassen. Leider mussten wir feststellen, dass der dortige Code im Rahmen unserer eigenen Konfiguration ebenfalls nicht lauffähig war.
@@ -29,6 +29,6 @@ Die Konfiguration des Equipment Service bereitete uns einige Schwierigkeiten. Wi
 
 Die Problemlösung brachte schliesslich ein Vergleich unseres Service mit einem Service der Musterlösung. Zusätzlich zum Austausch der Dependency war das Anbringen der @EnableFeignClient-Annotation erforderlich. Ansonsten hätte unser Service die entsprechende Funktionalität nicht nutzen können.
 
-### Erkenntnisse
+## Erkenntnisse
 Die Probleme bei der Konfiguration des Equipment-Service sind fast schon symptomatisch für die Nachteile des Einsatzes von umfangreichen Frameworks. Der Entwickler konfiguriert nach bestem Wissen und Gewissen und verlässt sich darauf, dass es die Framework-Magic, welche "under the hood" stattfindet, schon irgendwie richten wird. Wenn dann eine Exception auftritt, ist diese oftmals derart generisch und komplex, dass man sie kaum nachvollziehen kann. Als Anwender eines Framework bewegt man sich oftmals auf einer derart hohen Abstraktionsebene, dass die Fehlersuche immer schwieriger wird.
 Dennoch lohnt sich aus unserer Sicht der Einsatz von Frameworks. Die damit verbundenen Erleichterungen und zusätzlichen Möglichkeiten überwiegen die Nachteile bei weitem.
